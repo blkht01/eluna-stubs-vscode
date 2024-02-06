@@ -1,6 +1,6 @@
 ---
 -- Represents a game object in the game world.
--- Inherits all methods from: Object, WorldObject
+-- @inherits Object, WorldObject
 GameObject = {}
 GameObject.__index = GameObject
 

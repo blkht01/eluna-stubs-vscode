@@ -2,6 +2,7 @@
 -- The Item class represents an in-game item.
 -- It provides methods for inspecting and manipulating items.
 -- @class Item
+-- @inherits Object
 Item = {}
 
 -- Constructor for a new Item instance

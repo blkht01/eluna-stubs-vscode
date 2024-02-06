@@ -1,6 +1,7 @@
 -- Class WorldObject represents a game world object.
 -- It provides methods for inspecting and interacting with world objects.
 -- @class WorldObject
+-- @inherits Object
 WorldObject = {}
 
 -- Constructor for a new WorldObject instance

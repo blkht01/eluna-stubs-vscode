@@ -2,15 +2,46 @@
 -- Stub file for Eluna Player API methods for use with AzerothCore.
 -- This file provides basic signatures and documentation for IntelliSense in VSCode.
 -- Define the Player table that will act as the class
-Player = {}
-Player.__index = Player
+-- @inherits Object, WorldObject, Unit
+Global = {}
+function Global:GlobalMethod()
+end
 
--- Constructor for a new Player instance
+WorldObject = {}
+function WorldObject:WorldObjectMethod()
+end
+
+Unit = {}
+function Unit:UnitMethod()
+end
+
+Player = {}
+setmetatable(Player, {
+    __index = function(table, key)
+        -- Attempt to find the key in Global
+        if Global[key] then
+            return Global[key]
+        -- Not found in Global, attempt to find in World
+        elseif WorldObject[key] then
+            return WorldObject[key]
+        elseif Unit[key] then
+            return Unit[key]
+        end
+        -- If not found in either, return nil
+    end
+})
+
 function Player:new(name)
-    local instance = setmetatable({}, Player)
-    instance.name = name -- Example property
+    local instance = setmetatable({name = name}, {__index = Player})
     return instance
 end
+
+-- Example usage
+local player = Player:new("Jane")
+player:GlobalMethod()       -- Works, calls GlobalMethod
+player:WorldObjectMethod()  -- Works, calls WorldMethod
+player:UnitMethod()         -- Works, calls WorldMethod
+
 
 -- Adds combo points to the Player
 -- @param amount: The number of combo points to add.

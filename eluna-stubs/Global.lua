@@ -1,6 +1,14 @@
 ---
 -- Global class for commonly used functions.
 Global = {}
+Global.__index = Global
+
+-- Constructor for a new Global instance
+function Global:new(name)
+    local instance = setmetatable({}, Global)
+    instance.name = name -- Example property
+    return instance
+end
 
 ---
 -- Adds a taxi path to a specified map and returns the used pathId.
@@ -451,15 +459,21 @@ function GetUnitGUID(entryId, typeId, lowGuid)
     -- This is a stub. Actual functionality should be provided by the game engine.
 end
 
----
--- Performs a non-blocking HTTP request.
--- @param method string - The HTTP method (e.g., "GET", "POST").
--- @param url string - The URL to send the HTTP request to.
--- @param data string (optional) - The data to send with the request (for POST requests).
--- @param callback function (optional) - A callback function to handle the HTTP response.
-function HttpRequest(method, url, data, callback)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+--- Performs a non-blocking HTTP request.
+-- When the passed callback function is called, the parameters (status, body, headers) are passed to it.
+-- @overload fun(httpMethod: string, url: string, callback: function): void
+-- @overload fun(httpMethod: string, url: string, headers: table, callback: function): void
+-- @overload fun(httpMethod: string, url: string, body: string, contentType: string, callback: function): void
+-- @overload fun(httpMethod: string, url: string, body: string, contentType: string, headers: table, callback: function): void
+-- @param httpMethod string - The HTTP method to use (possible values are: "GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS").
+-- @param url string - The URL to query.
+-- @param body string - The request's body, used only for methods that send data (e.g., "POST"). Optional depending on the overload.
+-- @param contentType string - The Content-Type of the request, used in conjunction with body. Optional.
+-- @param headers table - A table with string key-value pairs containing the request headers. Optional.
+-- @param callback function - Function that will be called when the request is executed, receiving `status`, `body`, and `headers` as parameters.
+    function HttpRequest(httpMethod, url, ...)
+        -- This is a stub. Actual functionality should be provided by the game engine or the Lua environment.
+    end    
 
 ---
 -- Returns true if the bag and slot is a valid bag position, otherwise false.
@@ -512,18 +526,24 @@ function Kick(player)
     -- This is a stub. Actual functionality should be provided by the game engine.
 end
 
----
--- Performs an in-game spawn and returns the Creature or GameObject spawned.
--- @param entryId number - The entry ID of the Creature or GameObject.
+--- Performs an in-game spawn and returns either a Creature or a GameObject, based on the spawnType.
+-- @param spawnType number - The type of object to spawn, where 1 might represent Creature and 2 represents GameObject.
+-- @param entry number - The entry ID of the Creature or GameObject to spawn.
+-- @param mapId number - The map ID where the spawn should occur.
+-- @param instanceId number - The instance ID for the spawn location.
 -- @param x number - The X coordinate for the spawn location.
 -- @param y number - The Y coordinate for the spawn location.
 -- @param z number - The Z coordinate for the spawn location.
--- @param o number (optional) - The orientation (default is 0).
--- @param mapId number (optional) - The map ID (default is the current map).
--- @return Creature|GameObject - The spawned Creature or GameObject.
-function PerformIngameSpawn(entryId, x, y, z, o, mapId)
+-- @param o number - The orientation at the spawn location.
+-- @param save boolean - Whether the spawn should be saved to the database.
+-- @param durorresptime number - The despawn time for Creatures or respawn time for GameObjects.
+-- @param phase number - The phase ID for the spawn.
+-- @return mixed - Returns a Creature or GameObject based on the spawnType.
+function PerformIngameSpawn(spawnType, entry, mapId, instanceId, x, y, z, o, save, durorresptime, phase)
     -- This is a stub. Actual functionality should be provided by the game engine.
+    return Creature
 end
+
 
 ---
 -- Prints given parameters to the debug log.

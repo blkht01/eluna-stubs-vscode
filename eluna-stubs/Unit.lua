@@ -1,13 +1,8 @@
 -- The Unit class represents an in-game unit, extending the Object and WorldObject classes.
 -- It provides methods for various actions and interactions with units.
 -- @class Unit
+-- @Inherits Object, WorldObject
 Unit = {}
-
--- Constructor for a new Unit instance
-function Unit:new()
-    local instance = setmetatable({}, { __index = Unit })
-    return instance
-end
 
 -- Method to add an Aura of the given spell entry on the target Unit
 function Unit:AddAura(spellEntry, targetUnit)
@@ -674,9 +669,10 @@ function Unit:SetFacingToObject(worldObject)
     -- Implement logic to make the Unit face the direction of the specified WorldObject
 end
 
--- Method to set the Unit's faction
+-- Method to set the Unit's faction ID
 function Unit:SetFaction(faction)
     -- Implement logic to set the Unit's faction
+    return Creature
 end
 
 -- Method to fear the Unit, if 'false' specified, the Unit is no longer feared
