@@ -1,2 +1,2 @@
 # eluna-stubs-vscode
- Stubs for eluna in vscode, using the Lua extension by sumneko
+ Stubs for eluna. I'm using them in vscode with the Lua extension by sumneko
