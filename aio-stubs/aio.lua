@@ -48,13 +48,6 @@ end
 function AIO.Handle(player, name, handlername, ...)
 end
 
---- Client side version: Triggers a named handler.
--- @param string name The name associated with the handler table.
--- @param string handlername The name of the handler function to trigger.
--- @vararg ... Additional arguments to pass to the handler function.
-function AIO.Handle(name, handlername, ...)
-end
-
 --- Adds a table of handler functions for the specified name.
 -- @param string name The name associated with the handler table.
 -- @param table handlertable The table of handler functions.
