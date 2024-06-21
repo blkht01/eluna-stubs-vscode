@@ -247,7 +247,7 @@ function WorldObject:SetPhaseMask(phaseMask)
 end
 
 -- Method to spawn a creature at the specified location
-function WorldObject:SpawnCreature(creatureEntry, x, y, z, o)
+function WorldObject:SpawnCreature( entry, x, y, z, o, spawnType, despawnTimer )
     -- Implement logic to spawn a creature with the specified entry at the given coordinates and orientation
 end
 

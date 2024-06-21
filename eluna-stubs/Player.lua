@@ -1484,7 +1484,8 @@ end
 -- @param positionX: The X-coordinate of the teleport location.
 -- @param positionY: The Y-coordinate of the teleport location.
 -- @param positionZ: The Z-coordinate of the teleport location.
-function Player:Teleport(mapId, positionX, positionY, positionZ)
+-- @param orientation: The orientation of the teleport location.
+function Player:Teleport(mapId, positionX, positionY, positionZ, orientation)
     -- Implement this method to teleport the player to the specified location on the specified map.
 end
 

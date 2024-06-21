@@ -765,10 +765,17 @@ end
 
 ---
 -- Sends mail to a Player.
--- @param receiver string - The name of the receiving Player.
--- @param subject string - The mail subject.
--- @param message string - The mail message.
-function SendMail(receiver, subject, message)
+-- @Param subject string - The subject of the mail.
+-- @Param text string - The text of the mail.
+-- @Param receiverGUIDLow number - The low GUID of the Player to receive the mail.
+-- @Param senderGUIDLow number - The low GUID of the Player sending the mail.
+-- @Param stationary number - The stationary of the mail.
+-- @Param delay number - The delay of the mail.
+-- @Param money number - The money attached to the mail.
+-- @Param cod number - The COD of the mail.
+-- @Param entry number - The entry of the mail.
+-- @Param amoun number - The amount of the mail.
+function SendMail(subject, text, receiverGUIDLow, senderGUIDLow, stationary, delay, money, cod, entry, amoun)
     -- This is a stub. Actual functionality should be provided by the game engine.
 end
 
