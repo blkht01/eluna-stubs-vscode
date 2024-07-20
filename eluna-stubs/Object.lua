@@ -1,160 +1,115 @@
--- The Object class represents a basic game object (either an Item or a WorldObject).
--- It provides methods for inspecting and manipulating objects.
--- @class Object
+---@meta
+
+---@class Object
 Object = {}
 
--- Constructor for a new Object instance
-function Object:new()
-    local instance = setmetatable({}, { __index = Object })
-    return instance
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param offset number Should be 0, 1, 2, or 3. Valid numbers: integers from 0 to 255.
+---@return number value Valid numbers: integers from 0 to 255.
+function Object:GetByteValue(index, offset) end
 
--- Method to get the data at the specified index and offset, casted to an unsigned 8-bit integer
-function Object:GetByteValue(index, offset)
-    -- Implement logic to get byte value
-end
+---@return number entry Valid numbers: integers from 0 to 4,294,967,295.
+function Object:GetEntry() end
 
--- Method to get the entry of the Object
-function Object:GetEntry()
-    -- Implement logic to get entry
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@return number value Valid numbers: all decimal numbers.
+function Object:GetFloatValue(index) end
 
--- Method to get the data at the specified index, casted to a single-precision floating point value
-function Object:GetFloatValue(index)
-    -- Implement logic to get float value
-end
+---@return number guid Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function Object:GetGUID() end
 
--- Method to get the GUID of the Object
-function Object:GetGUID()
-    -- Implement logic to get GUID
-end
+---@return number guidLow Valid numbers: integers from 0 to 4,294,967,295.
+function Object:GetGUIDLow() end
 
--- Method to get the low-part of the Object's GUID
-function Object:GetGUIDLow()
-    -- Implement logic to get GUID low
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@return number value Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Object:GetInt32Value(index) end
 
--- Method to get the data at the specified index, casted to a signed 32-bit integer
-function Object:GetInt32Value(index)
-    -- Implement logic to get signed 32-bit integer value
-end
+---@return number scale Valid numbers: all decimal numbers.
+function Object:GetScale() end
 
--- Method to get the scale/size of the Object
-function Object:GetScale()
-    -- Implement logic to get scale/size
-end
+---@return number typeID Valid numbers: integers from 0 to 255.
+function Object:GetTypeId() end
 
--- Method to get the TypeId of the Object
-function Object:GetTypeId()
-    -- Implement logic to get TypeId
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param offset number Should be 0 or 1. Valid numbers: integers from 0 to 255.
+---@return number value Valid numbers: integers from 0 to 65,535.
+function Object:GetUInt16Value(index, offset) end
 
--- Method to get the data at the specified index and offset, casted to a signed 16-bit integer
-function Object:GetUInt16Value(index, offset)
-    -- Implement logic to get signed 16-bit integer value
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@return number value Valid numbers: integers from 0 to 4,294,967,295.
+function Object:GetUInt32Value(index) end
 
--- Method to get the data at the specified index, casted to an unsigned 32-bit integer
-function Object:GetUInt32Value(index)
-    -- Implement logic to get unsigned 32-bit integer value
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@return number value Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function Object:GetUInt64Value(index) end
 
--- Method to get the data at the specified index, casted to an unsigned 64-bit integer
-function Object:GetUInt64Value(index)
-    -- Implement logic to get unsigned 64-bit integer value
-end
+---@param index number The index of the flags data in the Object. Valid numbers: integers from 0 to 65,535.
+---@param flag number The flag to check for in the flags data. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean hasFlag 
+function Object:HasFlag(index, flag) end
 
--- Method to check if the specified flag is set
-function Object:HasFlag(index, flag)
-    -- Implement logic to check flag
-end
+---@return boolean inWorld 
+function Object:IsInWorld() end
 
--- Method to check if the Object has been added to its Map
-function Object:IsInWorld()
-    -- Implement logic to check if it's in the world
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param flag number Valid numbers: integers from 0 to 4,294,967,295.
+function Object:RemoveFlag(index, flag) end
 
--- Method to check if the Object is a player
-function Object:IsPlayer()
-    -- Implement logic to check if it's a player
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param offset number Should be 0, 1, 2, or 3. Valid numbers: integers from 0 to 255.
+---@param value number Valid numbers: integers from 0 to 255.
+function Object:SetByteValue(index, offset, value) end
 
--- Method to remove a flag from the value at the specified index
-function Object:RemoveFlag(index, flag)
-    -- Implement logic to remove flag
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param value number Valid numbers: integers from 0 to 4,294,967,295.
+function Object:SetFlag(index, value) end
 
--- Method to set the data at the specified index and offset to the given value, converted to an unsigned 8-bit integer
-function Object:SetByteValue(index, offset, value)
-    -- Implement logic to set byte value
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param value number Valid numbers: all decimal numbers.
+function Object:SetFloatValue(index, value) end
 
--- Method to set the specified flag in the data value at the specified index
-function Object:SetFlag(index, flag)
-    -- Implement logic to set flag
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param offset number Should be 0 or 1. Valid numbers: integers from 0 to 255.
+---@param value number Valid numbers: integers from -32,767 to 32,767.
+function Object:SetInt16Value(index, offset, value) end
 
--- Method to set the data at the specified index to the given value, converted to a single-precision floating point value
-function Object:SetFloatValue(index, value)
-    -- Implement logic to set float value
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param value number Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Object:SetInt32Value(index, value) end
 
--- Method to set the data at the specified index to the given value, converted to a signed 16-bit integer
-function Object:SetInt16Value(index, value)
-    -- Implement logic to set signed 16-bit integer value
-end
+---@param scale number Valid numbers: all decimal numbers.
+function Object:SetScale(scale) end
 
--- Method to set the data at the specified index to the given value, converted to a signed 32-bit integer
-function Object:SetInt32Value(index, value)
-    -- Implement logic to set signed 32-bit integer value
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param offset number Should be 0 or 1. Valid numbers: integers from 0 to 255.
+---@param value number Valid numbers: integers from 0 to 65,535.
+function Object:SetUInt16Value(index, offset, value) end
 
--- Method to set the Object's scale/size to the given value
-function Object:SetScale(value)
-    -- Implement logic to set scale/size
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param value number Valid numbers: integers from 0 to 4,294,967,295.
+function Object:SetUInt32Value(index, value) end
 
--- Method to set the data at the specified index to the given value, converted to an unsigned 16-bit integer
-function Object:SetUInt16Value(index, value)
-    -- Implement logic to set unsigned 16-bit integer value
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param value number Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function Object:SetUInt64Value(index, value) end
 
--- Method to set the data at the specified index to the given value, converted to an unsigned 32-bit integer
-function Object:SetUInt32Value(index, value)
-    -- Implement logic to set unsigned 32-bit integer value
-end
+---@return Corpse corpse The Object as a Corpse, or nil.
+function Object:ToCorpse() end
 
--- Method to set the data at the specified index to the given value, converted to an unsigned 64-bit integer
-function Object:SetUInt64Value(index, value)
-    -- Implement logic to set unsigned 64-bit integer value
-end
+---@return Creature creature The Object as a Creature, or nil.
+function Object:ToCreature() end
 
--- Method to attempt to convert the Object to a Corpse
-function Object:ToCorpse()
-    -- Implement logic to convert to Corpse
-end
+---@return GameObject gameObject The Object as a GameObject, or nil.
+function Object:ToGameObject() end
 
--- Method to attempt to convert the Object to a Creature
-function Object:ToCreature()
-    -- Implement logic to convert to Creature
-end
+---@return Player player The Object as a Player, or nil.
+function Object:ToPlayer() end
 
--- Method to attempt to convert the Object to a GameObject
-function Object:ToGameObject()
-    -- Implement logic to convert to GameObject
-end
+---@return Unit unit The Object as a Unit, or nil.
+function Object:ToUnit() end
 
--- Method to attempt to convert the Object to a Player
-function Object:ToPlayer()
-    -- Implement logic to convert to Player
-end
+---@param index number Valid numbers: integers from 0 to 65,535.
+---@param value number Valid numbers: integers from 0 to 4,294,967,295.
+function Object:UpdateUInt32Value(index, value) end
 
--- Method to attempt to convert the Object to a Unit
-function Object:ToUnit()
-    -- Implement logic to convert to Unit
-end
-
--- Method to set the data at the specified index to the given value, converted to an unsigned 32-bit integer
-function Object:UpdateUInt32Value(index, value)
-    -- Implement logic to update unsigned 32-bit integer value
-end

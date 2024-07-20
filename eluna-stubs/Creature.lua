@@ -1,620 +1,303 @@
----
--- Non-Player controlled Units (i.e. NPCs).
--- @class Creature
--- @inherits Object, WorldObject, Unit
+---@meta
+
+---@class Creature: Object, WorldObject, Unit
 Creature = {}
-Creature.__index = Creature
-
--- Constructor for a new Creature instance
-function Creature:new(name)
-    local instance = setmetatable({}, Creature)
-    instance.name = name -- Example property
-    return instance
-end
-
----
--- Adds a loot mode to the Creature.
--- @param lootMode number The loot mode to add.
-function Creature:AddLootMode(lootMode)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Make the Creature attack the target.
--- @param target Unit The target to attack.
-function Creature:AttackStart(target)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Make the Creature call for assistance in combat from other nearby Creatures.
-function Creature:CallAssistance()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Make the Creature call for help in combat from friendly Creatures within radius.
--- @param radius number The radius within which assistance is called.
-function Creature:CallForHelp(radius)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can start attacking nearby hostile Units, and returns false otherwise.
--- @return boolean true if the Creature can aggro, false otherwise.
-function Creature:CanAggro()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can assist a friend in combat against an enemy, and returns false otherwise.
--- @return boolean true if the Creature can assist, false otherwise.
-function Creature:CanAssistTo()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature completes the Quest with the ID questID, and returns false otherwise.
--- @param questID number The ID of the quest to check.
--- @return boolean true if the Creature can complete the quest, false otherwise.
-function Creature:CanCompleteQuest(questID)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can fly, and returns false otherwise.
--- @return boolean true if the Creature can fly, false otherwise.
-function Creature:CanFly()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can start attacking a specified target, and returns false otherwise.
--- @param target Unit The target to check.
--- @return boolean true if the Creature can start attacking the target, false otherwise.
-function Creature:CanStartAttack(target)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can move through deep water, and returns false otherwise.
--- @return boolean true if the Creature can swim, false otherwise.
-function Creature:CanSwim()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can move on land, and returns false otherwise.
--- @return boolean true if the Creature can walk, false otherwise.
-function Creature:CanWalk()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Despawn this Creature.
-function Creature:DespawnOrUnsummon()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Make the Creature flee combat to get assistance from a nearby friendly Creature.
-function Creature:FleeToGetAssistance()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Creature's AI name.
--- @return string The AI name of the Creature.
-function Creature:GetAIName()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns a target from the Creature's threat list based on the supplied arguments.
--- @param targetIndex number The index of the target to retrieve.
--- @return Unit|nil The target Unit or nil if not found.
-function Creature:GetAITarget(targetIndex)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns all Units in the Creature's threat list.
--- @return table A table containing all Units in the threat list.
-function Creature:GetAITargets()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the number of Units in this Creature's threat list.
--- @return number The number of Units in the threat list.
-function Creature:GetAITargetsCount()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the aggro range of the Creature for a target.
--- @param target Unit The target Unit to check aggro range for.
--- @return number The aggro range for the specified target.
-function Creature:GetAggroRange(target)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the effective aggro range of the Creature for a target.
--- @param target Unit The target Unit to check effective aggro range for.
--- @return number The effective aggro range for the specified target.
-function Creature:GetAttackDistance(target)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the delay between when the Creature dies and when its body despawns.
--- @return number The corpse delay.
-function Creature:GetCorpseDelay()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Creature's creature family ID (enumerated in CreatureFamily.dbc).
--- @return number The creature family ID.
-function Creature:GetCreatureFamily()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Creature's cooldown for a specific spellID.
--- @param spellID number The ID of the spell to check cooldown for.
--- @return number The cooldown delay for the specified spellID.
-function Creature:GetCreatureSpellCooldownDelay(spellID)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the current waypoint ID of the Creature.
--- @return number The current waypoint ID.
-function Creature:GetCurrentWaypointId()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the GUID of the Creature that is used as the ID in the database.
--- @return string The GUID of the Creature.
-function Creature:GetDBTableGUIDLow()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the default movement type for this Creature.
--- @return number The default movement type.
-function Creature:GetDefaultMovementType()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Creature's Extra flags.
--- @return number The Extra flags of the Creature.
-function Creature:GetExtraFlags()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the position the Creature returns to when evading from combat or respawning.
--- @return table The home position as a table with x, y, and z coordinates.
-function Creature:GetHomePosition()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Get the loot mode of this Creature.
--- @return number The loot mode of the Creature.
-function Creature:GetLootMode()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Player that can loot this Creature.
--- @return Player|nil The looting Player or nil if none can loot.
-function Creature:GetLootRecipient()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Group that can loot this Creature.
--- @return Group|nil The looting Group or nil if none can loot.
-function Creature:GetLootRecipientGroup()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the NPC flags of the Creature.
--- @return number The NPC flags of the Creature.
-function Creature:GetNPCFlags()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the respawn delay time for this Creature once killed.
--- @return number The respawn delay time in seconds.
-function Creature:GetRespawnDelay()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the script ID of the Creature.
--- @return number The script ID of the Creature.
-function Creature:GetScriptId()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the script name of the Creature.
--- @return string The script name of the Creature.
-function Creature:GetScriptName()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the shield block value of the Creature.
--- @return number The shield block value of the Creature.
-function Creature:GetShieldBlockValue()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Unit flags of the Creature.
--- @return number The Unit flags of the Creature.
-function Creature:GetUnitFlags()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the Unit flags 2 of the Creature.
--- @return number The Unit flags 2 of the Creature.
-function Creature:GetUnitFlagsTwo()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the radius the Creature is permitted to wander from its respawn point.
--- @return number The wander radius of the Creature.
-function Creature:GetWanderRadius()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the current waypoint path ID of the Creature.
--- @return number The current waypoint path ID.
-function Creature:GetWaypointPath()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature cannot cast a spell due to a category cooldown, and returns false otherwise.
--- @param spellId number The ID of the spell to check for category cooldown.
--- @return boolean True if the spell is on category cooldown, false otherwise.
-function Creature:HasCategoryCooldown(spellId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature has the specified loot mode, and returns false otherwise.
--- @param lootMode number The loot mode to check.
--- @return boolean True if the Creature has the specified loot mode, false otherwise.
-function Creature:HasLootMode(lootMode)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature will give its loot to a Player or Group, and returns false otherwise.
--- @return boolean True if the Creature will give its loot to a Player or Group, false otherwise.
-function Creature:HasLootRecipient()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature starts the Quest with the specified quest ID, and returns false otherwise.
--- @param questId number The ID of the quest to check.
--- @return boolean True if the Creature starts the specified quest, false otherwise.
-function Creature:HasQuest(questId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature has searched for combat assistance already, and returns false otherwise.
--- @return boolean True if the Creature has searched for combat assistance, false otherwise.
-function Creature:HasSearchedAssistance()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can cast a spell when mind-controlled, and returns false otherwise.
--- @param spellId number The ID of the spell to check for castability when mind-controlled.
--- @return boolean True if the spell can be cast when mind-controlled, false otherwise.
-function Creature:HasSpell(spellId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature has the specified spell on cooldown, and returns false otherwise.
--- @param spellId number The ID of the spell to check for cooldown.
--- @return boolean True if the spell is on cooldown, false otherwise.
-function Creature:HasSpellCooldown(spellId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is a civilian, and returns false otherwise.
--- @return boolean True if the Creature is a civilian, false otherwise.
-function Creature:IsCivilian()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is damaged enough for looting and reward, and returns false otherwise.
--- @return boolean True if the Creature is damaged enough for looting and reward, false otherwise.
-function Creature:IsDamageEnoughForLootingAndReward()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Makes the Creature start following its waypoint path.
--- @param pathId number The ID of the waypoint path to follow.
-function Creature:MoveWaypoint(pathId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Removes this Creature's corpse.
-function Creature:RemoveCorpse()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Removes the specified loot mode from the Creature.
--- @param lootMode number The loot mode to remove.
-function Creature:RemoveLootMode(lootMode)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Resets the Creature's loot mode to default.
-function Creature:ResetLootMode()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Respawns this Creature.
-function Creature:Respawn()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Saves the Creature in the database.
-function Creature:SaveToDB()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Makes the Creature try to find a new target.
-function Creature:SelectVictim()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the Creature can be aggroed.
--- @param enabled boolean True to enable aggro, false to disable.
-function Creature:SetAggroEnabled(enabled)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature's death state.
--- @param deathState number The death state to set.
-function Creature:SetDeathState(deathState)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the default movement type of the Creature.
--- @param movementType number The default movement type to set.
-function Creature:SetDefaultMovementType(movementType)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Makes the Creature able to fly if enabled.
--- @param enabled boolean True to enable flying, false to disable.
-function Creature:SetDisableGravity(enabled)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the Creature gives reputation or not.
--- @param enabled boolean True to enable reputation gain, false to disable.
-function Creature:SetDisableReputationGain(enabled)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Equips given Items to the Unit. Using 0 removes the equipped Item.
--- @param itemIds table An array of item IDs to equip.
-function Creature:SetEquipmentSlots(itemIds)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the position the Creature returns to when evading from combat or respawning.
--- @param x number The X coordinate of the home position.
--- @param y number The Y coordinate of the home position.
--- @param z number The Z coordinate of the home position.
-function Creature:SetHomePosition(x, y, z)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the creature is hovering / levitating or not.
--- @param enabled boolean True to enable hovering, false to disable.
-function Creature:SetHover(enabled)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature as in combat with all Players in the dungeon instance.
--- @param inCombat boolean True to set the Creature in combat with all Players, false to clear.
-function Creature:SetInCombatWithZone(inCombat)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature's loot mode to the specified mode.
--- @param lootMode number The loot mode to set.
-function Creature:SetLootMode(lootMode)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature's NPC flags to the specified flags.
--- @param flags number The NPC flags to set.
-function Creature:SetNPCFlags(flags)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the Creature can call nearby enemies for help in combat.
--- @param canCall boolean True to enable calling for assistance, false to disable.
-function Creature:SetNoCallAssistance(canCall)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the Creature can search for assistance at low health.
--- @param canSearch boolean True to enable searching for assistance, false to disable.
-function Creature:SetNoSearchAssistance(canSearch)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature's ReactState to the specified state.
--- @param state number The ReactState to set.
-function Creature:SetReactState(state)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the Creature can regenerate health.
--- @param canRegenerate boolean True to enable health regeneration, false to disable.
-function Creature:SetRegeneratingHealth(canRegenerate)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the time it takes for the Creature to respawn when killed.
--- @param respawnDelay number The respawn delay in seconds.
-function Creature:SetRespawnDelay(respawnDelay)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature's Unit flags to the specified flags.
--- @param flags number The Unit flags to set.
-function Creature:SetUnitFlags(flags)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the Creature's Unit flags2 to the specified flags.
--- @param flags number The Unit flags2 to set.
-function Creature:SetUnitFlagsTwo(flags)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets whether the Creature is currently walking or running.
--- @param isWalking boolean True for walking, false for running.
-function Creature:SetWalk(isWalking)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the distance the Creature can wander from its spawn point.
--- @param radius number The wander radius.
-function Creature:SetWanderRadius(radius)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Transforms the Creature into another Creature with the specified entry.
--- @param entry number The entry ID of the new Creature.
-function Creature:UpdateEntry(entry)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature's rank is Elite or Rare Elite, and returns false otherwise.
--- @return boolean True if the Creature is Elite or Rare Elite, false otherwise.
-function Creature:IsElite()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is a city guard, and returns false otherwise.
--- @return boolean True if the Creature is a city guard, false otherwise.
-function Creature:IsGuard()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is returning to its spawn position from combat, and returns false otherwise.
--- @return boolean True if the Creature is in evade mode, false otherwise.
-function Creature:IsInEvadeMode()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is the leader of a player faction, and returns false otherwise.
--- @return boolean True if the Creature is a racial leader, false otherwise.
-function Creature:IsRacialLeader()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can regenerate health, and returns false otherwise.
--- @return boolean True if the Creature can regenerate health, false otherwise.
-function Creature:IsRegeneratingHealth()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is set to not give reputation when killed, and returns false otherwise.
--- @return boolean True if the Creature doesn't give reputation, false otherwise.
-function Creature:IsReputationGainDisabled()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature will give its loot to a player, and returns false otherwise.
--- @return boolean True if the Creature's loot will be given to a player, false otherwise.
-function Creature:IsTappedBy()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature can be targeted for attack, and returns false otherwise.
--- @return boolean True if the Creature is targetable for attack, false otherwise.
-function Creature:IsTargetableForAttack()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature is an invisible trigger, and returns false otherwise.
--- @return boolean True if the Creature is an invisible trigger, false otherwise.
-function Creature:IsTrigger()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the Creature's rank is Boss, and returns false otherwise.
--- @return boolean True if the Creature is a world boss, false otherwise.
-function Creature:IsWorldBoss()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+
+---@param lootMode number Valid numbers: integers from 0 to 65,535.
+function Creature:AddLootMode(lootMode) end
+
+---@param victim Unit Unit that caused the threat.
+---@param threat number Threat amount. Valid numbers: all decimal numbers.
+---@param schoolMask? SpellSchoolMask Default value: (0) [SpellSchoolMask] of the threat causer.
+---@param spell? number Default value: (0) Spell entry used for threat. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:AddThreat(victim, threat, schoolMask, spell) end
+
+---@param target Unit 
+function Creature:AttackStart(target) end
+
+function Creature:CallAssistance() end
+
+---@param radius number Valid numbers: all decimal numbers.
+function Creature:CallForHelp(radius) end
+
+---@return boolean canAggro 
+function Creature:CanAggro() end
+
+---@param friend Unit The Unit we will be assisting.
+---@param enemy Unit The Unit that we would attack if we assist friend.
+---@param checkFaction? boolean Default value: (true) If true, the Creature must be the same faction as friend to assist.
+---@return boolean canAssist 
+function Creature:CanAssistTo(friend, enemy, checkFaction) end
+
+---@param questID number The ID of a Quest. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean completesQuest 
+function Creature:CanCompleteQuest(questID) end
+
+---@return boolean canFly 
+function Creature:CanFly() end
+
+---@param target Unit 
+---@param force? boolean Default value: (true) Force Creature to attack.
+function Creature:CanStartAttack(target, force) end
+
+---@return boolean canSwim 
+function Creature:CanSwim() end
+
+---@return boolean canWalk 
+function Creature:CanWalk() end
+
+function Creature:ClearAllThreat() end
+
+function Creature:ClearFixate() end
+
+---@param target Unit 
+function Creature:ClearThreat(target) end
+
+function Creature:ClearThreatList() end
+
+---@param delay? number Default value: (0) Dely to despawn in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:DespawnOrUnsummon(delay) end
+
+---@param target Unit 
+function Creature:FixateTarget(target) end
+
+function Creature:FleeToGetAssistance() end
+
+---@return string AIName 
+function Creature:GetAIName() end
+
+---@param targetType SelectAggroTarget How the threat list should be sorted.
+---@param playerOnly? boolean Default value: (false) If true, skips targets that aren't Players.
+---@param position? number Default value: (0) Used as an offset into the threat list. If targetType is random, used as the number of players from top of aggro to choose from. Valid numbers: integers from 0 to 4,294,967,295.
+---@param distance? number Default value: (0) Valid numbers: all decimal numbers.
+---@param aura? number Default value: (0) If positive, the target must have this Aura. If negative, the the target must not have this Aura. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+---@return Unit target The target, or nil.
+function Creature:GetAITarget(targetType, playerOnly, position, distance, aura) end
+
+---@return table targets 
+function Creature:GetAITargets() end
+
+---@return number targetsCount Valid numbers: all decimal numbers.
+function Creature:GetAITargetsCount() end
+
+---@param target Unit 
+---@return number aggroRange Valid numbers: all decimal numbers.
+function Creature:GetAggroRange(target) end
+
+---@param target Unit 
+---@return number attackDistance Valid numbers: all decimal numbers.
+function Creature:GetAttackDistance(target) end
+
+---@return number corpseDelay The delay, in seconds. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetCorpseDelay() end
+
+---@return CreatureFamily creatureFamily 
+function Creature:GetCreatureFamily() end
+
+---@param spellID number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number cooldown The cooldown, in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetCreatureSpellCooldownDelay(spellID) end
+
+---@return number wpId Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetCurrentWaypointId() end
+
+---@return number dbguid Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetDBTableGUIDLow() end
+
+---@return MovementGeneratorType defaultMovementType 
+function Creature:GetDefaultMovementType() end
+
+---@return ExtraFlags extraFlags 
+function Creature:GetExtraFlags() end
+
+---@return number x Valid numbers: all decimal numbers.
+---@return number y Valid numbers: all decimal numbers.
+---@return number z Valid numbers: all decimal numbers.
+---@return number o Valid numbers: all decimal numbers.
+function Creature:GetHomePosition() end
+
+---@return number lootMode Valid numbers: integers from 0 to 65,535.
+function Creature:GetLootMode() end
+
+---@return Player lootRecipient The player or nil.
+function Creature:GetLootRecipient() end
+
+---@return Group lootRecipient The group or nil.
+function Creature:GetLootRecipientGroup() end
+
+---@return NPCFlags npcFlags 
+function Creature:GetNPCFlags() end
+
+---@return number rank Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetRank() end
+
+---@return number respawnDelay The respawn delay, in seconds. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetRespawnDelay() end
+
+---@return number scriptID Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetScriptId() end
+
+---@return string scriptName 
+function Creature:GetScriptName() end
+
+---@return number shieldBlockValue Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetShieldBlockValue() end
+
+---@param target Unit 
+---@return number threat Valid numbers: all decimal numbers.
+function Creature:GetThreat(target) end
+
+---@return number wanderRadius Valid numbers: all decimal numbers.
+function Creature:GetWanderRadius() end
+
+---@return number pathId Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:GetWaypointPath() end
+
+---@param spellId number The ID of a Spell. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean hasCooldown 
+function Creature:HasCategoryCooldown(spellId) end
+
+---@param lootMode number Valid numbers: integers from 0 to 65,535.
+---@return boolean hasLootMode 
+function Creature:HasLootMode(lootMode) end
+
+---@return boolean hasLootRecipient 
+function Creature:HasLootRecipient() end
+
+---@param questId number The ID of a Quest. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean hasQuest 
+function Creature:HasQuest(questId) end
+
+---@return boolean searchedForAssistance 
+function Creature:HasSearchedAssistance() end
+
+---@param spellId number The ID of a Spell. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean hasSpell 
+function Creature:HasSpell(spellId) end
+
+---@param spellId number The ID of a Spell. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean hasCooldown 
+function Creature:HasSpellCooldown(spellId) end
+
+---@return boolean isCivilian 
+function Creature:IsCivilian() end
+
+---@return boolean isDamagedEnough 
+function Creature:IsDamageEnoughForLootingAndReward() end
+
+---@return boolean isDungeonBoss 
+function Creature:IsDungeonBoss() end
+
+---@return boolean isElite 
+function Creature:IsElite() end
+
+---@return boolean isGuard 
+function Creature:IsGuard() end
+
+---@return boolean inEvadeMode 
+function Creature:IsInEvadeMode() end
+
+---@return boolean isLeader 
+function Creature:IsRacialLeader() end
+
+---@return boolean isRegenerating 
+function Creature:IsRegeneratingHealth() end
+
+---@return boolean reputationDisabled 
+function Creature:IsReputationGainDisabled() end
+
+---@return boolean tapped 
+function Creature:IsTappedBy() end
+
+---@param mustBeDead? boolean Default value: (false) If true, only returns true if the Creature is also dead. Otherwise, it must be alive..
+---@return boolean targetable 
+function Creature:IsTargetableForAttack(mustBeDead) end
+
+---@return boolean canFly 
+function Creature:IsTrigger() end
+
+---@return boolean isWorldBoss 
+function Creature:IsWorldBoss() end
+
+function Creature:MoveWaypoint() end
+
+function Creature:RemoveCorpse() end
+
+---@param deleteFromDB boolean If true, it will delete the Creature from the database.
+function Creature:RemoveFromWorld(deleteFromDB) end
+
+---@param lootMode number Valid numbers: integers from 0 to 65,535.
+function Creature:RemoveLootMode(lootMode) end
+
+function Creature:ResetAllThreat() end
+
+function Creature:ResetLootMode() end
+
+function Creature:Respawn() end
+
+function Creature:SaveToDB() end
+
+function Creature:SelectVictim() end
+
+---@param allow? boolean Default value: (true) true to allow aggro, false to disable aggro.
+function Creature:SetAggroEnabled(allow) end
+
+---@param deathState DeathState 
+function Creature:SetDeathState(deathState) end
+
+---@param type MovementGeneratorType 
+function Creature:SetDefaultMovementType(type) end
+
+---@param disable boolean 
+function Creature:SetDisableGravity(disable) end
+
+---@param disable? boolean Default value: (true) true to disable reputation, false to enable.
+function Creature:SetDisableReputationGain(disable) end
+
+---@param main_hand number Main hand Item's entry. Valid numbers: integers from 0 to 4,294,967,295.
+---@param off_hand number Off hand Item's entry. Valid numbers: integers from 0 to 4,294,967,295.
+---@param ranged number Ranged Item's entry. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:SetEquipmentSlots(main_hand, off_hand, ranged) end
+
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@param o number Valid numbers: all decimal numbers.
+function Creature:SetHomePosition(x, y, z, o) end
+
+---@param enable? boolean Default value: (true) true to enable hovering, false to disable.
+function Creature:SetHover(enable) end
+
+function Creature:SetInCombatWithZone() end
+
+---@param lootMode number Valid numbers: integers from 0 to 65,535.
+function Creature:SetLootMode(lootMode) end
+
+---@param flags NPCFlags 
+function Creature:SetNPCFlags(flags) end
+
+---@param enable? boolean Default value: (true) true to disable calling for help, false to enable.
+function Creature:SetNoCallAssistance(enable) end
+
+---@param enable? boolean Default value: (true) true to disable searching, false to allow.
+function Creature:SetNoSearchAssistance(enable) end
+
+---@param state ReactState 
+function Creature:SetReactState(state) end
+
+---@param enable? boolean Default value: (true) true to enable health regeneration, false to disable it.
+function Creature:SetRegeneratingHealth(enable) end
+
+---@param delay number The delay, in seconds. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:SetRespawnDelay(delay) end
+
+---@param enable? boolean Default value: (true) true to enable walking, false for running.
+function Creature:SetWalk(enable) end
+
+---@param distance number Valid numbers: all decimal numbers.
+function Creature:SetWanderRadius(distance) end
+
+---@param entry number The Creature ID to transform into. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dataGUIDLow? number Default value: (0) Use this Creature's model and equipment instead of the defaults. Valid numbers: integers from 0 to 4,294,967,295.
+function Creature:UpdateEntry(entry, dataGUIDLow) end
+

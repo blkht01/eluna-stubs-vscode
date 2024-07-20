@@ -1,903 +1,497 @@
----
--- Global class for commonly used functions.
-Global = {}
-Global.__index = Global
-
--- Constructor for a new Global instance
-function Global:new(name)
-    local instance = setmetatable({}, Global)
-    instance.name = name -- Example property
-    return instance
-end
-
----
--- Adds a taxi path to a specified map and returns the used pathId.
--- @param mapId number - The ID of the map.
--- @param fromX number - The starting X-coordinate.
--- @param fromY number - The starting Y-coordinate.
--- @param fromZ number - The starting Z-coordinate.
--- @param toX number - The ending X-coordinate.
--- @param toY number - The ending Y-coordinate.
--- @param toZ number - The ending Z-coordinate.
--- @param cost number - The cost of the taxi ride.
--- @param delay number - The delay before the taxi starts.
--- @return number - The pathId of the added taxi path.
-function AddTaxiPath(mapId, fromX, fromY, fromZ, toX, toY, toZ, cost, delay)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Adds an Item to a vendor and updates the world database.
--- @param vendorGuid string - The GUID of the vendor.
--- @param itemTemplateId number - The ID of the item template to add.
--- @param amount number - The quantity of the item to add.
-function AddVendorItem(vendorGuid, itemTemplateId, amount)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes a SQL query on the login database.
--- @param query string - The SQL query to execute.
-function AuthDBExecute(query)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes a SQL query on the login database and returns an ElunaQuery.
--- @param query string - The SQL query to execute.
--- @return ElunaQuery - An ElunaQuery object.
-function AuthDBQuery(query)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes an asynchronous SQL query on the character database and passes an ElunaQuery to a callback function.
--- @param query string - The SQL query to execute.
--- @param callback function - The callback function to receive the ElunaQuery result.
-function AuthDBQueryAsync(query, callback)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Bans a Player's account, character, or IP.
--- @param banType string - The type of ban (account, character, or ip).
--- @param target string - The target to ban (account name, character name, or IP address).
--- @param duration number - The duration of the ban in seconds (0 for permanent).
--- @param reason string - The reason for the ban.
-function Ban(banType, target, duration, reason)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes a SQL query on the character database.
--- @param query string - The SQL query to execute.
-function CharDBExecute(query)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes a SQL query on the character database and returns an ElunaQuery.
--- @param query string - The SQL query to execute.
--- @return ElunaQuery - An ElunaQuery object.
-function CharDBQuery(query)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes an asynchronous SQL query on the character database and passes an ElunaQuery to a callback function.
--- @param query string - The SQL query to execute.
--- @param callback function - The callback function to receive the ElunaQuery result.
-function CharDBQueryAsync(query, callback)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all BattleGround events or one type of event.
--- @param event string (optional) - The specific event to unbind (e.g., "OnBattleGroundStart").
-function ClearBattleGroundEvents(event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a Creature's events or one type of event.
--- @param creatureGuid string - The GUID of the Creature.
--- @param event string (optional) - The specific event to unbind (e.g., "OnDeath").
-function ClearCreatureEvents(creatureGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a Creature's gossip events or one type of event.
--- @param creatureGuid string - The GUID of the Creature.
--- @param event string (optional) - The specific event to unbind (e.g., "OnGossipHello").
-function ClearCreatureGossipEvents(creatureGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a GameObject's events or one type of event.
--- @param gameObjectGuid string - The GUID of the GameObject.
--- @param event string (optional) - The specific event to unbind (e.g., "OnActivate").
-function ClearGameObjectEvents(gameObjectGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a GameObject's gossip events or one type of event.
--- @param gameObjectGuid string - The GUID of the GameObject.
--- @param event string (optional) - The specific event to unbind (e.g., "OnGossipSelect").
-function ClearGameObjectGossipEvents(gameObjectGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all Group events or one type of Group event.
--- @param event string (optional) - The specific event to unbind (e.g., "OnGroupJoin").
-function ClearGroupEvents(event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all Guild events or one type of Guild event.
--- @param event string (optional) - The specific event to unbind (e.g., "OnGuildCreate").
-function ClearGuildEvents(event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of an instanced Map's events or one type of event.
--- @param mapId number - The ID of the instanced Map.
--- @param event string (optional) - The specific event to unbind (e.g., "OnInstanceEnd").
-function ClearInstanceEvents(mapId, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of an Item's events or one type of event.
--- @param itemGuid string - The GUID of the Item.
--- @param event string (optional) - The specific event to unbind (e.g., "OnUse").
-function ClearItemEvents(itemGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of an Item's gossip events or one type of event.
--- @param itemGuid string - The GUID of the Item.
--- @param event string (optional) - The specific event to unbind (e.g., "OnGossipSelect").
-function ClearItemGossipEvents(itemGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a non-instanced Map's events or one type of event.
--- @param mapId number - The ID of the non-instanced Map.
--- @param event string (optional) - The specific event to unbind (e.g., "OnMapStart").
-function ClearMapEvents(mapId, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a WorldPacket opcode's events or one type of event.
--- @param opcode number - The WorldPacket opcode.
--- @param event string (optional) - The specific event to unbind (e.g., "OnWorldPacketReceived").
-function ClearPacketEvents(opcode, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all Player events or one type of Player event.
--- @param event string (optional) - The specific event to unbind (e.g., "OnLogin").
-function ClearPlayerEvents(event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a Player's gossip events or one type of event.
--- @param playerGuid string - The GUID of the Player.
--- @param event string (optional) - The specific event to unbind (e.g., "OnGossipSelect").
-function ClearPlayerGossipEvents(playerGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all server events or one type of event.
--- @param event string (optional) - The specific event to unbind (e.g., "OnServerStart").
-function ClearServerEvents(event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Unbinds event handlers for either all of a Creature's events or one type of event.
--- @param creatureGuid string - The GUID of the Creature.
--- @param event string (optional) - The specific event to unbind (e.g., "OnDeath").
-function ClearUniqueCreatureEvents(creatureGuid, event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns an object representing a long long (64-bit) value.
--- @param value number - The long long value.
--- @return LongLong - An object representing the long long value.
-function CreateLongLong(value)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Registers a global timed event.
--- @param interval number - The interval of the timed event in milliseconds.
--- @param repeatCount number (optional) - The number of times to repeat the event (default is 0, which means infinite).
--- @return LuaEvent - A LuaEvent object representing the registered timed event.
-function CreateLuaEvent(interval, repeatCount)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Creates a WorldPacket.
--- @param opcode number - The WorldPacket opcode.
--- @return WorldPacket - A WorldPacket object.
-function CreatePacket(opcode)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns an object representing an unsigned long long (64-bit) value.
--- @param value number - The unsigned long long value.
--- @return ULongLong - An object representing the unsigned long long value.
-function CreateULongLong(value)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the currently active game events.
--- @return table - A table containing the active game events.
-function GetActiveGameEvents()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the area or zone's name.
--- @return string - The name of the area or zone.
-function GetAreaName()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns emulator's supported expansion.
--- @return string - The supported expansion.
-function GetCoreExpansion()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns emulator's name.
--- @return string - The emulator's name.
-function GetCoreName()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns emulator version.
--- @return string - The emulator version.
-function GetCoreVersion()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the server's current time.
--- @return number - The current server time.
-function GetCurrTime()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the entry ID from a GUID.
--- @param guid string - The GUID.
--- @return number - The entry ID.
-function GetGUIDEntry(guid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the low GUID from a GUID.
--- @param guid string - The GUID.
--- @return number - The low GUID.
-function GetGUIDLow(guid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the type ID from a GUID.
--- @param guid string - The GUID.
--- @return number - The type ID.
-function GetGUIDType(guid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns game time in seconds.
--- @return number - The game time in seconds.
-function GetGameTime()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns Guild by the leader's GUID.
--- @param leaderGuid string - The leader's GUID.
--- @return Guild - A Guild object.
-function GetGuildByLeaderGUID(leaderGuid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns a Guild by name.
--- @param guildName string - The name of the Guild.
--- @return Guild - A Guild object.
-function GetGuildByName(guildName)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Builds an Item's GUID.
--- @param entryId number - The entry ID of the Item.
--- @param typeId number - The type ID of the Item.
--- @param lowGuid number - The low GUID of the Item.
--- @return string - The Item's GUID.
-function GetItemGUID(entryId, typeId, lowGuid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns a chat link for an Item.
--- @param itemId number - The ID of the Item.
--- @return string - The chat link for the Item.
-function GetItemLink(itemId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns Lua engine's name.
--- @return string - The name of the Lua engine.
-function GetLuaEngine()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns a Map by ID.
--- @param mapId number - The ID of the Map.
--- @return Map - A Map object.
-function GetMapById(mapId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Builds a GameObject's GUID.
--- @param entryId number - The entry ID of the GameObject.
--- @param typeId number - The type ID of the GameObject.
--- @param lowGuid number - The low GUID of the GameObject.
--- @return string - The GameObject's GUID.
-function GetObjectGUID(entryId, typeId, lowGuid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Gets the faction which is the current owner of Halaa in Nagrand.
--- @return number - The faction ID (0 for Alliance, 1 for Horde).
-function GetOwnerHalaa()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Finds and Returns Player by guid if found.
--- @param playerGuid string - The GUID of the Player.
--- @return Player - A Player object if found, or nil if not found.
-function GetPlayerByGUID(playerGuid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Finds and Returns Player by name if found.
--- @param playerName string - The name of the Player to find.
--- @return Player - A Player object if found, or nil if not found.
-function GetPlayerByName(playerName)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the amount of Players in the world.
--- @return number - The number of Players in the world.
-function GetPlayerCount()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Builds a Player's GUID.
--- @param entryId number - The entry ID of the Player.
--- @param typeId number - The type ID of the Player.
--- @param lowGuid number - The low GUID of the Player.
--- @return string - The Player's GUID.
-function GetPlayerGUID(entryId, typeId, lowGuid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns a table with all the current Players in the world.
--- @return table - A table containing Player objects.
-function GetPlayersInWorld()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns Quest template.
--- @param questId number - The ID of the Quest.
--- @return Quest - A Quest object representing the Quest template.
-function GetQuest(questId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the realm ID of the server.
--- @return number - The realm ID.
-function GetRealmID()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns the difference between an old timestamp and the current time.
--- @param oldTime number - The old timestamp.
--- @return number - The time difference in seconds.
-function GetTimeDiff(oldTime)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Builds a Creature's GUID.
--- @param entryId number - The entry ID of the Creature.
--- @param typeId number - The type ID of the Creature.
--- @param lowGuid number - The low GUID of the Creature.
--- @return string - The Creature's GUID.
-function GetUnitGUID(entryId, typeId, lowGuid)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
---- Performs a non-blocking HTTP request.
--- When the passed callback function is called, the parameters (status, body, headers) are passed to it.
--- @overload fun(httpMethod: string, url: string, callback: function): void
--- @overload fun(httpMethod: string, url: string, headers: table, callback: function): void
--- @overload fun(httpMethod: string, url: string, body: string, contentType: string, callback: function): void
--- @overload fun(httpMethod: string, url: string, body: string, contentType: string, headers: table, callback: function): void
--- @param httpMethod string - The HTTP method to use (possible values are: "GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS").
--- @param url string - The URL to query.
--- @param body string - The request's body, used only for methods that send data (e.g., "POST"). Optional depending on the overload.
--- @param contentType string - The Content-Type of the request, used in conjunction with body. Optional.
--- @param headers table - A table with string key-value pairs containing the request headers. Optional.
--- @param callback function - Function that will be called when the request is executed, receiving `status`, `body`, and `headers` as parameters.
-    function HttpRequest(httpMethod, url, ...)
-        -- This is a stub. Actual functionality should be provided by the game engine or the Lua environment.
-    end    
-
----
--- Returns true if the bag and slot is a valid bag position, otherwise false.
--- @param bag number - The bag ID.
--- @param slot number - The slot ID.
--- @return boolean - true if it's a valid bag position, otherwise false.
-function IsBagPos(bag, slot)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the bag and slot is a valid bank position, otherwise false.
--- @param bag number - The bag ID.
--- @param slot number - The slot ID.
--- @return boolean - true if it's a valid bank position, otherwise false.
-function IsBankPos(bag, slot)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the bag and slot is a valid equipment position, otherwise false.
--- @param bag number - The bag ID.
--- @param slot number - The slot ID.
--- @return boolean - true if it's a valid equipment position, otherwise false.
-function IsEquipmentPos(bag, slot)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the event is currently active, otherwise false.
--- @param event string - The name of the event.
--- @return boolean - true if the event is active, otherwise false.
-function IsGameEventActive(event)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Returns true if the bag and slot is a valid inventory position, otherwise false.
--- @param bag number - The bag ID.
--- @param slot number - The slot ID.
--- @return boolean - true if it's a valid inventory position, otherwise false.
-function IsInventoryPos(bag, slot)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Kicks a Player from the server.
--- @param player Player - The Player to kick.
-function Kick(player)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
---- Performs an in-game spawn and returns either a Creature or a GameObject, based on the spawnType.
--- @param spawnType number - The type of object to spawn, where 1 might represent Creature and 2 represents GameObject.
--- @param entry number - The entry ID of the Creature or GameObject to spawn.
--- @param mapId number - The map ID where the spawn should occur.
--- @param instanceId number - The instance ID for the spawn location.
--- @param x number - The X coordinate for the spawn location.
--- @param y number - The Y coordinate for the spawn location.
--- @param z number - The Z coordinate for the spawn location.
--- @param o number - The orientation at the spawn location.
--- @param save boolean - Whether the spawn should be saved to the database.
--- @param durorresptime number - The despawn time for Creatures or respawn time for GameObjects.
--- @param phase number - The phase ID for the spawn.
--- @return mixed - Returns a Creature or GameObject based on the spawnType.
-function PerformIngameSpawn(spawnType, entry, mapId, instanceId, x, y, z, o, save, durorresptime, phase)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-    return Creature
-end
-
-
----
--- Prints given parameters to the debug log.
--- @param ... any - The parameters to print.
-function PrintDebug(...)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Prints given parameters to the error log.
--- @param ... any - The parameters to print.
-function PrintError(...)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Prints given parameters to the info log.
--- @param ... any - The parameters to print.
-function PrintInfo(...)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Registers a BattleGround event handler.
--- @param event: BattleGround event Id, refer to BGEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterBGEvent(event, handlerFunction, shots)
-    -- Implement logic to register the BattleGround event handler.
-end
-
----
--- Registers a Creature event handler.
--- @param entry: The ID of one or more Creatures.
--- @param event: Creature event ID, refer to CreatureEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterCreatureEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the Creature event handler.
-end
-
----
--- Registers a Creature gossip event handler.
--- @param entry: Creature entry Id.
--- @param event: Creature gossip event Id, refer to GossipEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- function RegisterCreatureGossipEvent(entry, event, handlerFunction, shots)
-function RegisterCreatureGossipEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the Creature gossip event handler for the specified entry and event.
-end
-
----
--- Registers a GameObject event handler.
--- @param entry: GameObject entry Id.
--- @param event: GameObject event Id, refer to GameObjectEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
-function RegisterGameObjectEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the GameObject event handler for the specified GameObject entry.
-end
-
----
--- Registers a GameObject gossip event handler.
--- @param entry: GameObject entry Id.
--- @param event: GameObject gossip event Id, refer to GossipEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterGameObjectGossipEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the GameObject gossip event handler for the specified entry, event, and function.
-end
-
----
--- Registers a Group event handler.
--- @param event: Group event Id, refer to GroupEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterGroupEvent(event, handlerFunction, shots)
-    -- Implement logic to register the Group event handler.
-end
-
----
--- Registers a Guild event handler.
--- @param event string - The name of the Guild event.
--- @param callback function - The callback function to handle the event.
-function RegisterGuildEvent(event, callback)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Registers a Map event handler for one instance of a Map.
--- @param instance_id: ID of an instance of a Map.
--- @param event: Map event ID, refer to InstanceEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
-function RegisterInstanceEvent(instance_id, event, handlerFunction, shots)
-    -- Implement logic to register the Map event handler for the specified instance.
-end
-
--- Registers an Item event handler.
--- @param entry: Item entry Id.
--- @param event: Item event Id, refer to ItemEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterItemEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the Item event handler.
-end
-
-
----
--- Registers an Item gossip event handler.
--- @param entry: Item entry Id.
--- @param event: Item gossip event Id, refer to GossipEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
-function RegisterItemGossipEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the Item gossip event handler for the specified Item entry.
-end
-
----
--- Registers a Map event handler for all instances of a Map.
--- @param map_id: ID of a Map.
--- @param event: Map event ID, refer to InstanceEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
-function RegisterMapEvent(map_id, event, handlerFunction, shots)
-    -- Implement logic to register the Map event handler.
-end
-
----
--- Registers a WorldPacket event handler.
--- @param entry: Opcode.
--- @param event: Packet event Id, refer to PacketEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterPacketEvent(entry, event, handlerFunction, shots)
-    -- Implement logic to register the Packet event handler.
-end
-
----
--- Registers a Player event handler.
--- @param event: Player event Id, refer to PlayerEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterPlayerEvent(event, handlerFunction, shots)
-    -- Implement logic to register the Player event handler.
-end
-
----
--- Registers a Player gossip event handler.
--- Note: GOSSIP_EVENT_ON_HELLO does not apply to players.
--- @param menu_id: Player gossip menu Id.
--- @param event: Player gossip event Id, refer to GossipEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
-function RegisterPlayerGossipEvent(menu_id, event, handlerFunction, shots)
-    -- Implement logic to register the Player gossip event handler for the specified menu_id and event.
-end
-
----
--- Registers a server event handler.
--- @param event: Server event ID, refer to ServerEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
--- @return cancel: A function that cancels the binding when called.
-function RegisterServerEvent(event, handlerFunction, shots)
-    -- Implement logic to register the server event handler.
-end
-
----
--- Registers a Creature event handler for a single Creature.
--- @param guid: The GUID of a single Creature.
--- @param instance_id: The instance ID of a single Creature.
--- @param event: Creature event ID, refer to CreatureEvents enum.
--- @param handlerFunction: Function to register.
--- @param shots (0): The number of times the function will be called, 0 means "always call this function".
-function RegisterUniqueCreatureEvent(guid, instance_id, event, handlerFunction, shots)
-    -- Implement logic to register the Creature event handler for the specified GUID, instance ID, and event.
-end
-
----
--- Reloads the Lua engine.
-function ReloadEluna()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Removes a global timed event specified by ID.
--- @param eventId number - The ID of the timed event to remove.
-function RemoveEventById(eventId)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Removes all global timed events.
-function RemoveEvents()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Runs a command.
--- @param command string - The command to run.
-function RunCommand(command)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Saves all Players.
-function SaveAllPlayers()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sends mail to a Player.
--- @Param subject string - The subject of the mail.
--- @Param text string - The text of the mail.
--- @Param receiverGUIDLow number - The low GUID of the Player to receive the mail.
--- @Param senderGUIDLow number - The low GUID of the Player sending the mail.
--- @Param stationary number - The stationary of the mail.
--- @Param delay number - The delay of the mail.
--- @Param money number - The money attached to the mail.
--- @Param cod number - The COD of the mail.
--- @Param entry number - The entry of the mail.
--- @Param amoun number - The amount of the mail.
-function SendMail(subject, text, receiverGUIDLow, senderGUIDLow, stationary, delay, money, cod, entry, amoun)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sends a message to all Players online.
--- @param message string - The message to send.
-function SendWorldMessage(message)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Sets the owner of Halaa in Nagrand to the respective faction.
--- @param faction number - The faction to set (0 for Alliance, 1 for Horde).
-function SetOwnerHalaa(faction)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Starts the event by eventId, if force is set, the event will force start regardless of previous event state.
--- @param eventId number - The ID of the event to start.
--- @param force boolean (optional) - If true, force start the event (default is false).
-function StartGameEvent(eventId, force)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Stops the event by eventId, if force is set, the event will force stop regardless of previous event state.
--- @param eventId number - The ID of the event to stop.
--- @param force boolean (optional) - If true, force stop the event (default is false).
-function StopGameEvent(eventId, force)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Removes all Items from a vendor and updates the database.
--- @param vendor Vendor - The vendor from which to remove items.
-function VendorRemoveAllItems(vendor)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Removes an Item from a vendor and updates the database.
--- @param vendor Vendor - The vendor from which to remove the item.
--- @param item Item - The item to remove from the vendor.
-function VendorRemoveItem(vendor, item)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes a SQL query on the world database.
--- @param query string - The SQL query to execute.
-function WorldDBExecute(query)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes a SQL query on the world database and returns an ElunaQuery.
--- @param query string - The SQL query to execute.
--- @return ElunaQuery - An ElunaQuery object representing the query result.
-function WorldDBQuery(query)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Executes an asynchronous SQL query on the world database and passes an ElunaQuery to a callback function.
--- @param query string - The SQL query to execute.
--- @param callback function - The callback function to handle the query result.
-function WorldDBQueryAsync(query, callback)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Performs a bitwise AND operation (a & b).
--- @param a number - The first number for the AND operation.
--- @param b number - The second number for the AND operation.
--- @return number - The result of the AND operation.
-function bit_and(a, b)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Performs a bitwise left-shift operation (a << b).
--- @param a number - The number to shift.
--- @param b number - The number of positions to shift left.
--- @return number - The result of the left-shift operation.
-function bit_lshift(a, b)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Performs a bitwise NOT operation (~a).
--- @param a number - The number for the NOT operation.
--- @return number - The result of the NOT operation.
-function bit_not(a)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Performs a bitwise OR operation (a | b).
--- @param a number - The first number for the OR operation.
--- @param b number - The second number for the OR operation.
--- @return number - The result of the OR operation.
-function bit_or(a, b)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Performs a bitwise right-shift operation (a >> b).
--- @param a number - The number to shift.
--- @param b number - The number of positions to shift right.
--- @return number - The result of the right-shift operation.
-function bit_rshift(a, b)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
-
----
--- Performs a bitwise XOR operation (a ^ b).
--- @param a number - The first number for the XOR operation.
--- @param b number - The second number for the XOR operation.
--- @return number - The result of the XOR operation.
-function bit_xor(a, b)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end 
-
-setmetatable(Global, {__index = _G})
+---@meta
+
+---@param waypoints table Table containing waypoints: {map, x, y, z[, actionFlag, delay]}.
+---@param mountA number Alliance Creature entry. Valid numbers: integers from 0 to 4,294,967,295.
+---@param mountH number Horde Creature entry. Valid numbers: integers from 0 to 4,294,967,295.
+---@param price? number Default value: (0) Price of the taxi path. Valid numbers: integers from 0 to 4,294,967,295.
+---@param pathId? number Default value: (0) Path Id of the taxi path. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number actualPathId Valid numbers: integers from 0 to 4,294,967,295.
+function AddTaxiPath(waypoints, mountA, mountH, price, pathId) end
+
+---@param entry number Creature entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param item number Item entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param maxcount number Max Item stack count. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+---@param incrtime number Combined with maxcount, incrtime tells how often (in seconds) the vendor list is refreshed and the limited Item copies are restocked. Valid numbers: integers from 0 to 4,294,967,295.
+---@param extendedcost number Unique cost of an Item, such as conquest points for example. Valid numbers: integers from 0 to 4,294,967,295.
+function AddVendorItem(entry, item, maxcount, incrtime, extendedcost) end
+
+---@param sql string Query to execute.
+function AuthDBExecute(sql) end
+
+---@param sql string Query to execute.
+---@return ElunaQuery results 
+function AuthDBQuery(sql) end
+
+---@param sql string Query to execute asynchronously.
+---@param func function The callback function to be called with the query results.
+function AuthDBQueryAsync(sql, func) end
+
+---@param banMode BanMode Method of ban, refer to BanMode above.
+---@param nameOrIP string If BanMode is 0 then accountname, if 1 then charactername if 2 then ip.
+---@param duration number Duration (in seconds) of the ban. Valid numbers: integers from 0 to 4,294,967,295.
+---@param reason string 
+---@param whoBanned string 
+---@return number result Status of the ban. 0 if success, 1 if syntax error, 2 if target not found, 3 if a longer ban already exists, nil if unknown result. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Ban(banMode, nameOrIP, duration, reason, whoBanned) end
+
+---@param sql string Query to execute.
+function CharDBExecute(sql) end
+
+---@param sql string Query to execute.
+---@return ElunaQuery results 
+function CharDBQuery(sql) end
+
+---@param sql string Query to execute asynchronously.
+---@param func function The callback function to be called with the query results.
+function CharDBQueryAsync(sql, func) end
+
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterBGEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearBattleGroundEvents(event_type) end
+
+---@param entry number The ID of one or more Creatures whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterCreatureEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearCreatureEvents(entry, event_type) end
+
+---@param entry number The ID of a Creature whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterCreatureGossipEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearCreatureGossipEvents(entry, event_type) end
+
+---@param entry number The ID of a GameObject whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterGameObjectEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearGameObjectEvents(entry, event_type) end
+
+---@param entry number The ID of a GameObject whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterGameObjectGossipEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearGameObjectGossipEvents(entry, event_type) end
+
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterGroupEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearGroupEvents(event_type) end
+
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterGuildEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearGuildEvents(event_type) end
+
+---@param entry number The ID of an instance of a Map. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterInstanceEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearInstanceEvents(entry, event_type) end
+
+---@param entry number The ID of an Item whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterItemEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearItemEvents(entry, event_type) end
+
+---@param entry number The ID of an Item whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterItemGossipEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearItemGossipEvents(entry, event_type) end
+
+---@param map_id number The ID of a Map. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterPlayerGossipEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearMapEvents(map_id, event_type) end
+
+---@param opcode number The type of WorldPacket whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterPacketEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearPacketEvents(opcode, event_type) end
+
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterPlayerEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearPlayerEvents(event_type) end
+
+---@param entry number The low GUID of a Player whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterPlayerGossipEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearPlayerGossipEvents(entry, event_type) end
+
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterServerEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearServerEvents(event_type) end
+
+---@param guid number The GUID of a single Creature whose handlers will be cleared. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@param instance_id number The instance ID of a single Creature whose handlers will be cleared. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event_type number The event whose handlers will be cleared, see Global:RegisterCreatureEvent. Valid numbers: integers from 0 to 4,294,967,295.
+function ClearUniqueCreatureEvents(guid, instance_id, event_type) end
+
+---@param n number Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+---@param n_ll number Valid numbers: integers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+---@param n_str string 
+---@return number value Valid numbers: integers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+function CreateLongLong(n, n_ll, n_str) end
+
+---@param func function Function to trigger when the time has passed.
+---@param delay number Set time in milliseconds for the event to trigger. Valid numbers: integers from 0 to 4,294,967,295.
+---@param delay table A table {min, max} containing the minimum and maximum delay time.
+---@param repeats? number Default value: (1) How many times for the event to repeat, 0 is infinite. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number eventId Unique ID for the timed event used to cancel it or nil. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function CreateLuaEvent(func, delay, delay, repeats) end
+
+---@param opcode Opcodes The opcode of the packet.
+---@param size number The size of the packet. Valid numbers: integers from 0 to 4,294,967,295.
+---@return WorldPacket packet 
+function CreatePacket(opcode, size) end
+
+---@param n number Valid numbers: integers from 0 to 4,294,967,295.
+---@param n_ull number Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@param n_str string 
+---@return number value Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function CreateULongLong(n, n_ull, n_str) end
+
+---@return table activeEvents 
+function GetActiveGameEvents() end
+
+---@param areaOrZoneId number Area ID or zone ID. Valid numbers: integers from 0 to 4,294,967,295.
+---@param locale? LocaleConstant Default value: (DEFAULT_LOCALE) Locale to return the name in.
+---@return string areaOrZoneName 
+function GetAreaName(areaOrZoneId, locale) end
+
+---@return number expansion Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function GetCoreExpansion() end
+
+---@return string coreName 
+function GetCoreName() end
+
+---@return string version 
+function GetCoreVersion() end
+
+---@return number currTime The current time, in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+function GetCurrTime() end
+
+---@param guid number GUID of an Creature or GameObject. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@return number entry Entry ID, or 0 if guid is not a Creature or GameObject. Valid numbers: integers from 0 to 4,294,967,295.
+function GetGUIDEntry(guid) end
+
+---@param guid number GUID of an Object. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@return number lowguid Low GUID of the Object. Valid numbers: integers from 0 to 4,294,967,295.
+function GetGUIDLow(guid) end
+
+---@param guid number GUID of an Object. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@return number typeId Type ID of the Object. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function GetGUIDType(guid) end
+
+---@return number time Valid numbers: integers from 0 to 4,294,967,295.
+function GetGameTime() end
+
+---@param guid number The guid of a Guild leader. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@return Guild guild 
+function GetGuildByLeaderGUID(guid) end
+
+---@param name string 
+---@return Guild guild The Guild, or nil if it doesn't exist.
+function GetGuildByName(name) end
+
+---@param lowguid number Low GUID of the Item. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number guid Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function GetItemGUID(lowguid) end
+
+---@param entry number Entry ID of an Item. Valid numbers: integers from 0 to 4,294,967,295.
+---@param locale? LocaleConstant Default value: (DEFAULT_LOCALE) Locale to return the Item name in.
+---@return string itemLink 
+function GetItemLink(entry, locale) end
+
+---@return string engineName 
+function GetLuaEngine() end
+
+---@param mapId number See Map.dbc. Valid numbers: integers from 0 to 4,294,967,295.
+---@param instanceId? number Default value: (0) Required if the map is an instance, otherwise don't pass anything. Valid numbers: integers from 0 to 4,294,967,295.
+---@return Map map The Map, or nil if it doesn't exist.
+function GetMapById(mapId, instanceId) end
+
+---@param lowguid number Low GUID of the GameObject. Valid numbers: integers from 0 to 4,294,967,295.
+---@param entry number Entry ID of the GameObject. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number guid Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function GetObjectGUID(lowguid, entry) end
+
+---@param guid number Guid of the Player, you can get it with Object:GetGUID. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@return Player player 
+function GetPlayerByGUID(guid) end
+
+---@param name string Name of the Player.
+---@return Player player 
+function GetPlayerByName(name) end
+
+---@return number count Valid numbers: integers from 0 to 4,294,967,295.
+function GetPlayerCount() end
+
+---@param lowguid number Low GUID of the Player. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number guid Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function GetPlayerGUID(lowguid) end
+
+---@param team? TeamId Default value: (TEAM_NEUTRAL) Optional check team of the Player, Alliance, Horde or Neutral (All).
+---@param onlyGM? boolean Default value: (false) Optional check if GM only.
+---@return table worldPlayers 
+function GetPlayersInWorld(team, onlyGM) end
+
+---@param team? TeamId Default value: (TEAM_NEUTRAL) Optional check team of the Player, Alliance, Horde or Neutral (All).
+---@param onlyGM? boolean Default value: (false) Optional check if GM only.
+---@return table mapPlayers 
+function GetPlayersOnMap(team, onlyGM) end
+
+---@param questId number Quest entry ID. Valid numbers: integers from 0 to 4,294,967,295.
+---@return Quest quest 
+function GetQuest(questId) end
+
+---@return number realm Valid numbers: integers from 0 to 4,294,967,295.
+function GetRealmID() end
+
+---@return number instanceId Valid numbers: integers from 0 to 4,294,967,295.
+function GetStateInstanceId() end
+
+---@return Map map 
+function GetStateMap() end
+
+---@return number mapId Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function GetStateMapId() end
+
+---@param oldTime number An old timestamp, in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number timeDiff The difference, in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+function GetTimeDiff(oldTime) end
+
+---@param lowguid number Low GUID of the Creature. Valid numbers: integers from 0 to 4,294,967,295.
+---@param entry number Entry ID of the Creature. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number guid Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function GetUnitGUID(lowguid, entry) end
+
+---@param bag number The bag the Item is in, you can get this with Item:GetBagSlot. Valid numbers: integers from 0 to 255.
+---@param slot number The slot the Item is in within the bag, you can get this with Item:GetSlot. Valid numbers: integers from 0 to 255.
+---@return boolean isBagPosition 
+function IsBagPos(bag, slot) end
+
+---@param bag number The bag the Item is in, you can get this with Item:GetBagSlot. Valid numbers: integers from 0 to 255.
+---@param slot number The slot the Item is in within the bag, you can get this with Item:GetSlot. Valid numbers: integers from 0 to 255.
+---@return boolean isBankPosition 
+function IsBankPos(bag, slot) end
+
+---@return boolean isCompatibilityMode 
+function IsCompatibilityMode() end
+
+---@param bag number The bag the Item is in, you can get this with Item:GetBagSlot. Valid numbers: integers from 0 to 255.
+---@param slot number The slot the Item is in within the bag, you can get this with Item:GetSlot. Valid numbers: integers from 0 to 255.
+---@return boolean isEquipmentPosition 
+function IsEquipmentPos(bag, slot) end
+
+---@param eventId number The event id to check.. Valid numbers: integers from 0 to 65,535.
+---@return boolean isActive 
+function IsGameEventActive(eventId) end
+
+---@param bag number The bag the Item is in, you can get this with Item:GetBagSlot. Valid numbers: integers from 0 to 255.
+---@param slot number The slot the Item is in within the bag, you can get this with Item:GetSlot. Valid numbers: integers from 0 to 255.
+---@return boolean isInventoryPos 
+function IsInventoryPos(bag, slot) end
+
+---@param player Player Player to kick.
+function Kick(player) end
+
+---@param spawnType number Type of object to spawn, 1 = Creature, 2 = GameObject. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+---@param entry number Entry ID of the Creature or GameObject. Valid numbers: integers from 0 to 4,294,967,295.
+---@param mapId number Map ID to spawn the Creature or GameObject in. Valid numbers: integers from 0 to 4,294,967,295.
+---@param instanceId number Instance ID to put the Creature or GameObject in. Non instance is 0. Valid numbers: integers from 0 to 4,294,967,295.
+---@param x number X coordinate of the Creature or GameObject. Valid numbers: all decimal numbers.
+---@param y number Y coordinate of the Creature or GameObject. Valid numbers: all decimal numbers.
+---@param z number Z coordinate of the Creature or GameObject. Valid numbers: all decimal numbers.
+---@param o number O facing/orientation of the Creature or GameObject. Valid numbers: all decimal numbers.
+---@param save? boolean Default value: (false) Optional to save the Creature or GameObject to the database.
+---@param durorresptime? number Default value: (0) Despawn time of the Creature if it's not saved or respawn time of GameObject. Valid numbers: integers from 0 to 4,294,967,295.
+---@param phase? number Default value: (1) Phase to put the Creature or GameObject in. Valid numbers: integers from 0 to 4,294,967,295.
+---@return WorldObject worldObject Returns Creature or GameObject.
+function PerformIngameSpawn(spawnType, entry, mapId, instanceId, x, y, z, o, save, durorresptime, phase) end
+
+---@param ... any 
+function PrintDebug(...) end
+
+---@param ... any 
+function PrintError(...) end
+
+---@param ... any 
+function PrintInfo(...) end
+
+---@param event number BattleGround event Id, refer to BGEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterBGEvent(event, func, shots) end
+
+---@param entry number The ID of one or more Creatures. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Refer to CreatureEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function that will be called when the event occurs.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterCreatureEvent(entry, event, func, shots) end
+
+---@param entry number Creature entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Creature gossip event Id, refer to GossipEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterCreatureGossipEvent(entry, event, func, shots) end
+
+---@param entry number GameObject entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number GameObject event Id, refer to GameObjectEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterGameObjectEvent(entry, event, func, shots) end
+
+---@param entry number GameObject entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number GameObject gossip event Id, refer to GossipEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterGameObjectGossipEvent(entry, event, func, shots) end
+
+---@param event number Group event Id, refer to GroupEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterGroupEvent(event, func, shots) end
+
+---@param event number Guild event Id, refer to GuildEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterGuildEvent(event, func, shots) end
+
+---@param instance_id number ID of an instance of a Map. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Map event ID, refer to MapEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+function RegisterInstanceEvent(instance_id, event, func, shots) end
+
+---@param entry number Item entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Item event Id, refer to ItemEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterItemEvent(entry, event, func, shots) end
+
+---@param entry number Item entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Item gossip event Id, refer to GossipEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterItemGossipEvent(entry, event, func, shots) end
+
+---@param map_id number ID of a Map. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Map event ID, refer to MapEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+function RegisterMapEvent(map_id, event, func, shots) end
+
+---@param entry number Opcode. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Packet event Id, refer to PacketEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterPacketEvent(entry, event, func, shots) end
+
+---@param event number Player event Id, refer to PlayerEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterPlayerEvent(event, func, shots) end
+
+---@param menu_id number Player gossip menu Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Player gossip event Id, refer to GossipEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterPlayerGossipEvent(menu_id, event, func, shots) end
+
+---@param event number Server event ID, refer to ServerEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function that will be called when the event occurs.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterServerEvent(event, func, shots) end
+
+---@param entry number Spell entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Spell event Id, refer to SpellEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function to register.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterSpellEvent(entry, event, func, shots) end
+
+---@param guid number The GUID of a single Creature. Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@param instance_id number The instance ID of a single Creature. Valid numbers: integers from 0 to 4,294,967,295.
+---@param event number Refer to CreatureEvents above. Valid numbers: integers from 0 to 4,294,967,295.
+---@param func function Function that will be called when the event occurs.
+---@param shots? number Default value: (0) The number of times the function will be called, 0 means "always call this function". Valid numbers: integers from 0 to 4,294,967,295.
+---@return function cancel A function that cancels the binding when called.
+function RegisterUniqueCreatureEvent(guid, instance_id, event, func, shots) end
+
+function ReloadEluna() end
+
+---@param eventId number Event Id to remove. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+---@param all_Events? boolean Default value: (false) Remove from all events, not just global.
+function RemoveEventById(eventId, all_Events) end
+
+---@param all_Events? boolean Default value: (false) Remove all events, not just global.
+function RemoveEvents(all_Events) end
+
+---@param command string The command to run.
+function RunCommand(command) end
+
+function SaveAllPlayers() end
+
+---@param subject string Title (subject) of the mail.
+---@param text string Contents of the mail.
+---@param receiverGUIDLow number Low GUID of the receiver. Valid numbers: integers from 0 to 4,294,967,295.
+---@param senderGUIDLow? number Default value: (0) Low GUID of the sender. Valid numbers: integers from 0 to 4,294,967,295.
+---@param stationary? MailStationery Default value: (MAIL_STATIONERY_DEFAULT) Type of mail that is being sent as, refer to MailStationery above.
+---@param delay? number Default value: (0) Mail send delay in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+---@param money? number Default value: (0) Money to send. Valid numbers: integers from 0 to 4,294,967,295.
+---@param cod? number Default value: (0) Cod money amount. Valid numbers: integers from 0 to 4,294,967,295.
+---@param entry? number Default value: (0) Entry of an Item to send with mail. Valid numbers: integers from 0 to 4,294,967,295.
+---@param amount? number Default value: (0) Amount of the Item to send with mail. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number itemGUIDlow Low GUID of the item. Up to 12 values returned, returns nil if no further items are sent. Valid numbers: integers from 0 to 4,294,967,295.
+function SendMail(subject, text, receiverGUIDLow, senderGUIDLow, stationary, delay, money, cod, entry, amount) end
+
+---@param message string Message to send.
+function SendWorldMessage(message) end
+
+---@param eventId number The event id to start.. Valid numbers: integers from 0 to 65,535.
+---@param force? boolean Default value: (false) Set true to force start the event..
+function StartGameEvent(eventId, force) end
+
+---@param eventId number The event id to stop.. Valid numbers: integers from 0 to 65,535.
+---@param force? boolean Default value: (false) Set true to force stop the event..
+function StopGameEvent(eventId, force) end
+
+---@param entry number Creature entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+function VendorRemoveAllItems(entry) end
+
+---@param entry number Creature entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+---@param item number Item entry Id. Valid numbers: integers from 0 to 4,294,967,295.
+function VendorRemoveItem(entry, item) end
+
+---@param sql string Query to execute.
+function WorldDBExecute(sql) end
+
+---@param sql string Query to execute.
+---@return ElunaQuery results 
+function WorldDBQuery(sql) end
+
+---@param sql string Query to execute asynchronously.
+---@param func function The callback function to be called with the query results.
+function WorldDBQueryAsync(sql, func) end
+
+---@param a number Valid numbers: integers from 0 to 4,294,967,295.
+---@param b number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number result Valid numbers: integers from 0 to 4,294,967,295.
+function bit_and(a, b) end
+
+---@param a number Valid numbers: integers from 0 to 4,294,967,295.
+---@param b number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number result Valid numbers: integers from 0 to 4,294,967,295.
+function bit_lshift(a, b) end
+
+---@param a number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number result Valid numbers: integers from 0 to 4,294,967,295.
+function bit_not(a) end
+
+---@param a number Valid numbers: integers from 0 to 4,294,967,295.
+---@param b number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number result Valid numbers: integers from 0 to 4,294,967,295.
+function bit_or(a, b) end
+
+---@param a number Valid numbers: integers from 0 to 4,294,967,295.
+---@param b number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number result Valid numbers: integers from 0 to 4,294,967,295.
+function bit_rshift(a, b) end
+
+---@param a number Valid numbers: integers from 0 to 4,294,967,295.
+---@param b number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number result Valid numbers: integers from 0 to 4,294,967,295.
+function bit_xor(a, b) end
+

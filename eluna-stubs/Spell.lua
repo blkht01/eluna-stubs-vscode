@@ -1,70 +1,41 @@
--- The Spell class represents an instance of a spell created when cast by a Unit.
--- It provides methods for spell-related actions and information.
--- @class Spell
+---@meta
+
+---@class Spell
 Spell = {}
 
--- Constructor for a new Spell instance
-function Spell:new()
-    local instance = setmetatable({}, { __index = Spell })
-    return instance
-end
+function Spell:Cancel() end
 
--- Method to cancel the Spell
-function Spell:Cancel()
-    -- Implement logic to cancel the spell
-end
+---@param skipCheck? boolean Default value: (false) Skips initial checks to see if the Spell can be casted or not, this is optional.
+function Spell:Cast(skipCheck) end
 
--- Method to cast the Spell
-function Spell:Cast()
-    -- Implement logic to cast the spell
-end
+function Spell:Finish() end
 
--- Method to finish the Spell
-function Spell:Finish()
-    -- Implement logic to finish the spell
-end
+---@return number castTime Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Spell:GetCastTime() end
 
--- Method to get the cast time of the Spell
-function Spell:GetCastTime()
-    -- Implement logic to get the cast time
-end
+---@return Unit caster 
+function Spell:GetCaster() end
 
--- Method to get the Unit that casted the Spell
-function Spell:GetCaster()
-    -- Implement logic to get the caster
-end
+---@return number duration Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Spell:GetDuration() end
 
--- Method to get the spell duration of the Spell
-function Spell:GetDuration()
-    -- Implement logic to get the spell duration
-end
+---@return number entryId Valid numbers: integers from 0 to 4,294,967,295.
+function Spell:GetEntry() end
 
--- Method to get the entry ID of the Spell
-function Spell:GetEntry()
-    -- Implement logic to get the entry ID
-end
+---@return number powerCost Valid numbers: integers from 0 to 4,294,967,295.
+function Spell:GetPowerCost() end
 
--- Method to get the power cost of the Spell
-function Spell:GetPowerCost()
-    -- Implement logic to get the power cost
-end
+---@return Object target 
+function Spell:GetTarget() end
 
--- Method to get the target Object of the Spell
-function Spell:GetTarget()
-    -- Implement logic to get the target object
-end
+---@return number x X coordinate of the Spell. Valid numbers: all decimal numbers.
+---@return number y Y coordinate of the Spell. Valid numbers: all decimal numbers.
+---@return number z Z coordinate of the Spell. Valid numbers: all decimal numbers.
+function Spell:GetTargetDest() end
 
--- Method to get the target destination coordinates of the Spell
-function Spell:GetTargetDest()
-    -- Implement logic to get the target destination coordinates
-end
+---@return boolean isAutoRepeating 
+function Spell:IsAutoRepeat() end
 
--- Method to check if the Spell is automatically repeating
-function Spell:IsAutoRepeat()
-    -- Implement logic to check if the spell is auto-repeating
-end
+---@param setRepeat boolean Set variable to 'true' for spell to automatically repeat.
+function Spell:SetAutoRepeat(setRepeat) end
 
--- Method to set the Spell to automatically repeat
-function Spell:SetAutoRepeat()
-    -- Implement logic to set the spell to auto-repeat
-end

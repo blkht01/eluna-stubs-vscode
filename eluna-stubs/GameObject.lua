@@ -1,142 +1,60 @@
----
--- Represents a game object in the game world.
--- @inherits Object, WorldObject
+---@meta
+
+---@class GameObject: Object, WorldObject
 GameObject = {}
-GameObject.__index = GameObject
 
--- Constructor for a new GameObject instance
-function GameObject:new(name)
-    local instance = setmetatable({}, GameObject)
-    instance.name = name -- Example property
-    return instance
-end
+function GameObject:Despawn() end
 
----
--- Adds loot to the GameObject.
--- @param itemID number - The ID of the item to add to the loot table.
--- @param chance number - The chance of the item dropping.
-function GameObject:AddLoot(itemID, chance)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return number dbguid Valid numbers: integers from 0 to 4,294,967,295.
+function GameObject:GetDBTableGUIDLow() end
 
----
--- Despawns the GameObject.
-function GameObject:Despawn()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return number displayId Valid numbers: integers from 0 to 4,294,967,295.
+function GameObject:GetDisplayId() end
 
----
--- Returns the GUID of the GameObject that is used as the ID in the database.
--- @return string - The GUID of the GameObject.
-function GameObject:GetDBTableGUIDLow()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return GOState goState 
+function GameObject:GetGoState() end
 
----
--- Returns the display ID of the GameObject.
--- @return number - The display ID of the GameObject.
-function GameObject:GetDisplayId()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return Player player 
+function GameObject:GetLootRecipient() end
 
----
--- Returns the state of a GameObject.
--- @return number - The state of the GameObject.
-function GameObject:GetGoState()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return Group group 
+function GameObject:GetLootRecipientGroup() end
 
----
--- Returns the Player that can loot the GameObject.
--- @return Player - The Player that can loot the GameObject.
-function GameObject:GetLootRecipient()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return LootState lootState 
+function GameObject:GetLootState() end
 
----
--- Returns the Group that can loot the GameObject.
--- @return Group - The Group that can loot the GameObject.
-function GameObject:GetLootRecipientGroup()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param questId number Quest entry Id to check. Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean hasQuest 
+function GameObject:HasQuest(questId) end
 
----
--- Returns the LootState of the GameObject.
--- @return number - The LootState of the GameObject.
-function GameObject:GetLootState()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return boolean isActive 
+function GameObject:IsActive() end
 
----
--- Checks if the GameObject can give the specified Quest.
--- @param questID number - The ID of the Quest.
--- @return boolean - True if the GameObject can give the Quest, false otherwise.
-function GameObject:HasQuest(questID)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return boolean isDestructible 
+function GameObject:IsDestructible() end
 
----
--- Returns 'true' if the GameObject is active, otherwise 'false'.
--- @return boolean - True if the GameObject is active, false otherwise.
-function GameObject:IsActive()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return boolean isSpawned 
+function GameObject:IsSpawned() end
 
----
--- Returns 'true' if the GameObject is spawned, otherwise 'false'.
--- @return boolean - True if the GameObject is spawned, false otherwise.
-function GameObject:IsSpawned()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return boolean isTransport 
+function GameObject:IsTransport() end
 
----
--- Returns 'true' if the GameObject is a transport, otherwise 'false'.
--- @return boolean - True if the GameObject is a transport, false otherwise.
-function GameObject:IsTransport()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param deleteFromDB boolean If true, it will delete the GameObject from the database.
+function GameObject:RemoveFromWorld(deleteFromDB) end
 
----
--- Removes the GameObject from the world.
-function GameObject:RemoveFromWorld()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+function GameObject:Respawn() end
 
----
--- Respawns the GameObject.
-function GameObject:Respawn()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+function GameObject:SaveToDB() end
 
----
--- Saves the GameObject to the database.
-function GameObject:SaveToDB()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param state GOState All available go states can be seen above.
+function GameObject:SetGoState(state) end
 
----
--- Sets the state of a GameObject.
--- @param state number - The state to set for the GameObject.
-function GameObject:SetGoState(state)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param state LootState All available loot states can be seen above.
+function GameObject:SetLootState(state) end
 
----
--- Sets the LootState of the GameObject.
--- @param state number - The LootState to set for the GameObject.
-function GameObject:SetLootState(state)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param delay? number Default value: (0) Cooldown time in seconds to respawn or despawn the object. 0 means never. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function GameObject:SetRespawnTime(delay) end
 
----
--- Sets the respawn or despawn time for the game object.
--- @param time number - The time in milliseconds for respawn or despawn.
-function GameObject:SetRespawnTime(time)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param delay? number Default value: (0) Cooldown time in seconds to restore the GameObject back to normal. 0 for infinite duration. Valid numbers: integers from 0 to 4,294,967,295.
+function GameObject:UseDoorOrButton(delay) end
 
----
--- Activates a door or a button/lever.
-function GameObject:UseDoorOrButton()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end

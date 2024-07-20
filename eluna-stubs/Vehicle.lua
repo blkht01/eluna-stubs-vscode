@@ -1,45 +1,26 @@
--- Class Vehicle represents a game vehicle that can carry passengers.
--- It provides methods for managing passengers and checking the vehicle's properties.
--- @class Vehicle
+---@meta
+
+---@class Vehicle
 Vehicle = {}
 
--- Constructor for a new Vehicle instance
-function Vehicle:new(entry, owner)
-    local instance = setmetatable({}, Vehicle)
-    instance.entry = entry -- Vehicle entry
-    instance.owner = owner -- Owner of the vehicle
-    instance.passengers = {} -- Table to store passengers and their seats
-    return instance
-end
+---@param passenger Unit 
+---@param seat number Valid numbers: integers from -127 to 127.
+function Vehicle:AddPassenger(passenger, seat) end
 
--- Continue with the methods below:
+---@return number entry Valid numbers: integers from 0 to 4,294,967,295.
+function Vehicle:GetEntry() end
 
--- Method to add a Unit passenger to a specified seat in the Vehicle
-function Vehicle:AddPassenger(passenger, seat)
-    -- Implement logic to add the passenger to the specified seat in the Vehicle
-end
+---@return Unit owner 
+function Vehicle:GetOwner() end
 
--- Method to return the Vehicle's entry
-function Vehicle:GetEntry()
-    return self.entry
-end
+---@param seat number Valid numbers: integers from -127 to 127.
+---@return Unit passenger 
+function Vehicle:GetPassenger(seat) end
 
--- Method to return the Vehicle's owner
-function Vehicle:GetOwner()
-    return self.owner
-end
+---@param passenger Unit 
+---@return boolean isOnBoard 
+function Vehicle:IsOnBoard(passenger) end
 
--- Method to return the Vehicle's passenger in the specified seat
-function Vehicle:GetPassenger(seat)
-    -- Implement logic to return the passenger in the specified seat of the Vehicle
-end
+---@param passenger Unit 
+function Vehicle:RemovePassenger(passenger) end
 
--- Method to check if the Unit passenger is on board the Vehicle
-function Vehicle:IsOnBoard(passenger)
-    -- Implement logic to check if the passenger is on board the Vehicle
-end
-
--- Method to remove a Unit passenger from the Vehicle
-function Vehicle:RemovePassenger(passenger)
-    -- Implement logic to remove the passenger from the Vehicle
-end

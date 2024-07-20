@@ -1,128 +1,57 @@
----
--- The Guild class represents a guild in the game.
--- It provides methods for managing guild members, sending packets, and more.
--- @class Guild
+---@meta
+
+---@class Guild
 Guild = {}
 
--- Constructor for a new Guild instance
-function Guild:new(name)
-    local instance = setmetatable({}, Guild)
-    instance.name = name -- Example property
-    return instance
-end
+---@param player Player The Player to be added to the guild.
+---@param rankId number The rank ID. Valid numbers: integers from 0 to 255.
+function Guild:AddMember(player, rankId) end
 
----
--- Adds the specified Player to the Guild at the specified rank.
--- @param player Player - The player to add to the guild.
--- @param rank number - The rank at which to add the player.
-function Guild:AddMember(player, rank)
-    -- Implementation should be provided by the game engine.
-end
+---@param player Player The Player to be removed from the guild.
+---@param isDisbanding boolean Default 'false', should only be set to 'true' if the guild is triggered to disband.
+function Guild:DeleteMember(player, isDisbanding) end
 
----
--- Removes the specified Player from the Guild.
--- @param player Player - The player to remove from the guild.
-function Guild:DeleteMember(player)
-    -- Implementation should be provided by the game engine.
-end
+function Guild:Disband() end
 
----
--- Disbands the Guild.
-function Guild:Disband()
-    -- Implementation should be provided by the game engine.
-end
+---@return number entryId Valid numbers: integers from 0 to 4,294,967,295.
+function Guild:GetId() end
 
----
--- Returns the Guild's entry ID.
--- @return number - The entry ID of the guild.
-function Guild:GetId()
-    -- Implementation should be provided by the game engine.
-end
+---@return string guildInfo 
+function Guild:GetInfo() end
 
----
--- Returns the Guild's current info.
--- @return string - The current info of the guild.
-function Guild:GetInfo()
-    -- Implementation should be provided by the game engine.
-end
+---@return Player leader 
+function Guild:GetLeader() end
 
----
--- Finds and returns the Guild leader by their GUID if logged in.
--- @param leaderGUID number - The GUID of the guild leader.
--- @return Player - The guild leader player if found, otherwise nil.
-function Guild:GetLeader(leaderGUID)
-    -- Implementation should be provided by the game engine.
-end
+---@return number leaderGUID Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function Guild:GetLeaderGUID() end
 
----
--- Returns Guild leader GUID.
--- @return number - The GUID of the guild leader.
-function Guild:GetLeaderGUID()
-    -- Implementation should be provided by the game engine.
-end
+---@return string guildMOTD 
+function Guild:GetMOTD() end
 
----
--- Returns the Guild's current Message Of The Day.
--- @return string - The current Message Of The Day (MOTD) of the guild.
-function Guild:GetMOTD()
-    -- Implementation should be provided by the game engine.
-end
+---@return number memberCount Valid numbers: integers from 0 to 4,294,967,295.
+function Guild:GetMemberCount() end
 
----
--- Returns the member count of this Guild.
--- @return number - The member count of the guild.
-function Guild:GetMemberCount()
-    -- Implementation should be provided by the game engine.
-end
+---@return table guildPlayers Table of Players.
+function Guild:GetMembers() end
 
----
--- Returns a table with the Players in this Guild.
--- @return table - A table containing the Players in the guild.
-function Guild:GetMembers()
-    -- Implementation should be provided by the game engine.
-end
+---@return string guildName 
+function Guild:GetName() end
 
----
--- Returns the Guild's name.
--- @return string - The name of the guild.
-function Guild:GetName()
-    -- Implementation should be provided by the game engine.
-end
+---@param packet WorldPacket The WorldPacket to be sent to the Players.
+function Guild:SendPacket(packet) end
 
----
--- Sends a WorldPacket to all the Players in the Guild.
--- @param packet WorldPacket - The WorldPacket to send to guild members.
-function Guild:SendPacket(packet)
-    -- Implementation should be provided by the game engine.
-end
+---@param packet WorldPacket The WorldPacket to be sent to the Players.
+---@param rankId number The rank ID. Valid numbers: integers from 0 to 255.
+function Guild:SendPacketToRanked(packet, rankId) end
 
----
--- Sends a WorldPacket to all the Players at the specified rank in the Guild.
--- @param packet WorldPacket - The WorldPacket to send to guild members of the specified rank.
--- @param rank number - The rank of guild members to send the packet to.
-function Guild:SendPacketToRanked(packet, rank)
-    -- Implementation should be provided by the game engine.
-end
+---@param tabId number The ID of the tab specified. Valid numbers: integers from 0 to 255.
+---@param info string The information to be set to the bank tab.
+function Guild:SetBankTabText(tabId, info) end
 
----
--- Sets the information of the bank tab specified.
--- @param tabId number - The ID of the bank tab to set information for.
--- @param tabText string - The information text to set for the bank tab.
-function Guild:SetBankTabText(tabId, tabText)
-    -- Implementation should be provided by the game engine.
-end
+---@param leader Player The Player leader to change.
+function Guild:SetLeader(leader) end
 
----
--- Sets the leader of this Guild.
--- @param leader Player - The player to set as the guild leader.
-function Guild:SetLeader(leader)
-    -- Implementation should be provided by the game engine.
-end
+---@param player Player The Player to be promoted/demoted.
+---@param rankId number The rank ID. Valid numbers: integers from 0 to 255.
+function Guild:SetMemberRank(player, rankId) end
 
----
--- Promotes/demotes the Player to the specified rank.
--- @param player Player - The player to promote/demote.
--- @param rank number - The rank to set for the player.
-function Guild:SetMemberRank(player, rank)
-    -- Implementation should be provided by the game engine.
-end

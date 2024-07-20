@@ -1,105 +1,70 @@
----
--- A game map, e.g. Azeroth, Eastern Kingdoms, the Molten Core, etc.
--- It provides methods for inspecting and manipulating Map data.
--- @class Map
+---@meta
+
+---@class Map
 Map = {}
 
--- Constructor for a new Map instance
-function Map:new(name)
-    local instance = setmetatable({}, Map)
-    instance.name = name -- Example property
-    return instance
-end
+function Map:Data() end
 
--- Method to get the area ID of the Map at specified coordinates
-function Map:GetAreaId(x, y, z)
-    -- Implement logic to retrieve the area ID
-end
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@param phasemask? number Default value: (PHASEMASK_NORMAL) Valid numbers: integers from 0 to 4,294,967,295.
+---@return number areaId Valid numbers: integers from 0 to 4,294,967,295.
+function Map:GetAreaId(x, y, z, phasemask) end
 
--- Method to get the difficulty of the Map
-function Map:GetDifficulty()
-    -- Implement logic to retrieve the difficulty
-end
+---@return number difficulty Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Map:GetDifficulty() end
 
--- Method to get the height of the Map at given coordinates
-function Map:GetHeight(x, y)
-    -- Implement logic to retrieve the height
-end
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@return number z Valid numbers: all decimal numbers.
+function Map:GetHeight(x, y) end
 
--- Method to get the instance data table for the Map, if it exists
-function Map:GetInstanceData()
-    -- Implement logic to retrieve instance data
-end
+---@return table instance_data Instance data table, or nil.
+function Map:GetInstanceData() end
 
--- Method to get the instance ID of the Map
-function Map:GetInstanceId()
-    -- Implement logic to retrieve instance ID
-end
+---@return number instanceId Valid numbers: integers from 0 to 4,294,967,295.
+function Map:GetInstanceId() end
 
--- Method to get the ID of the Map
-function Map:GetMapId()
-    -- Implement logic to retrieve the Map ID
-end
+---@return number mapId Valid numbers: integers from 0 to 4,294,967,295.
+function Map:GetMapId() end
 
--- Method to get the name of the Map
-function Map:GetName()
-    -- Implement logic to retrieve the name
-end
+---@return string mapName 
+function Map:GetName() end
 
--- Method to get the player count currently on the Map (excluding GMs)
-function Map:GetPlayerCount()
-    -- Implement logic to retrieve player count
-end
+---@return number playerCount Valid numbers: integers from 0 to 4,294,967,295.
+function Map:GetPlayerCount() end
 
--- Method to get a table with all the current Players in the map
-function Map:GetPlayers()
-    -- Implement logic to retrieve Players in the map
-end
+---@param team TeamId Optional check team of the Player, Alliance, Horde or Neutral (All).
+---@return table mapPlayers 
+function Map:GetPlayers(team) end
 
--- Method to get a WorldObject by its GUID from the map if it is spawned
-function Map:GetWorldObject(objectGuid)
-    -- Implement logic to retrieve the WorldObject
-end
+---@param guid number Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+---@return WorldObject object 
+function Map:GetWorldObject(guid) end
 
--- Method to check if the Map is an arena BattleGround
-function Map:IsArena()
-    -- Implement logic to check if it's an arena
-end
+---@return boolean isArena 
+function Map:IsArena() end
 
--- Method to check if the Map is a non-arena BattleGround
-function Map:IsBattleground()
-    -- Implement logic to check if it's a non-arena BattleGround
-end
+---@return boolean isBattleGround 
+function Map:IsBattleground() end
 
--- Method to check if the Map is a dungeon
-function Map:IsDungeon()
-    -- Implement logic to check if it's a dungeon
-end
+---@return boolean isDungeon 
+function Map:IsDungeon() end
 
--- Method to check if the Map has no Players
-function Map:IsEmpty()
-    -- Implement logic to check if it's empty
-end
+---@return boolean isEmpty 
+function Map:IsEmpty() end
 
--- Method to check if the Map is a heroic
-function Map:IsHeroic()
-    -- Implement logic to check if it's heroic
-end
+---@return boolean isHeroic 
+function Map:IsHeroic() end
 
--- Method to check if the Map is a raid
-function Map:IsRaid()
-    -- Implement logic to check if it's a raid
-end
+---@return boolean isRaid 
+function Map:IsRaid() end
 
--- Method to save the Map's instance data to the database
-function Map:SaveInstanceData()
-    -- Implement logic to save instance data
-end
+function Map:SaveInstanceData() end
 
--- Method to set the weather type based on WeatherType and grade supplied
-function Map:SetWeather(weatherType, grade)
-    -- Implement logic to set the weather
-end
+---@param zone number Id of the zone to set the weather for. Valid numbers: integers from 0 to 4,294,967,295.
+---@param type WeatherType The [WeatherType], see above available weather types.
+---@param grade number The intensity/grade of the [Weather], ranges from 0 to 1. Valid numbers: all decimal numbers.
+function Map:SetWeather(zone, type, grade) end
 
--- Return the Map class
-return Map

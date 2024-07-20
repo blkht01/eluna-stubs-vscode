@@ -1,257 +1,257 @@
--- Class WorldObject represents a game world object.
--- It provides methods for inspecting and interacting with world objects.
--- @class WorldObject
--- @inherits Object
+---@meta
+
+---@class WorldObject: Object
 WorldObject = {}
 
--- Constructor for a new WorldObject instance
-function WorldObject:new()
-    local instance = setmetatable({}, WorldObject)
-    return instance
-end
+function WorldObject:Data() end
 
--- Continue with the methods below:
+---@param object WorldObject 
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@return number angle Angle in radians in range 0..2*pi. Valid numbers: all decimal numbers.
+function WorldObject:GetAngle(object, x, y) end
 
--- Method to return the angle between this WorldObject and another WorldObject or a point
-function WorldObject:GetAngle(otherObject)
-    -- Implement logic to calculate and return the angle
-end
+---@return number areaId Valid numbers: integers from 0 to 4,294,967,295.
+function WorldObject:GetAreaId() end
 
--- Method to return the current area ID of the WorldObject
-function WorldObject:GetAreaId()
-    -- Implement logic to return the area ID
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param entryId? number Default value: (0) Optionally set entry ID of creatures to find. Valid numbers: integers from 0 to 4,294,967,295.
+---@param hostile? number Default value: (0) 0 both, 1 hostile, 2 friendly. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dead? number Default value: (1) 0 both, 1 alive, 2 dead. Valid numbers: integers from 0 to 4,294,967,295.
+---@return table creaturesInRange Table of Creatures.
+function WorldObject:GetCreaturesInRange(range, entryId, hostile, dead) end
 
--- Method to return a table of Creature objects in sight of the WorldObject or within the given range and/or with a specific entry ID
-function WorldObject:GetCreaturesInRange(range, entryId)
-    -- Implement logic to find and return the creatures within range and/or with the specified entry ID
-end
+---@param obj WorldObject 
+---@param x number The X-coordinate of the point. Valid numbers: all decimal numbers.
+---@param y number The Y-coordinate of the point. Valid numbers: all decimal numbers.
+---@param z number The Z-coordinate of the point. Valid numbers: all decimal numbers.
+---@return number dist The distance in yards. Valid numbers: all decimal numbers.
+function WorldObject:GetDistance(obj, x, y, z) end
 
--- Method to return the distance from this WorldObject to another WorldObject or a point in 3D space
-function WorldObject:GetDistance(otherObject)
-    -- Implement logic to calculate and return the distance
-end
+---@param obj WorldObject 
+---@param x number The X-coordinate of the point. Valid numbers: all decimal numbers.
+---@param y number The Y-coordinate of the point. Valid numbers: all decimal numbers.
+---@return number dist The distance in yards. Valid numbers: all decimal numbers.
+function WorldObject:GetDistance2d(obj, x, y) end
 
--- Method to return the distance from this WorldObject to another WorldObject or a point in 2D space
-function WorldObject:GetDistance2d(otherObject)
-    -- Implement logic to calculate and return the 2D distance
-end
+---@param obj WorldObject 
+---@param x number The X-coordinate of the point. Valid numbers: all decimal numbers.
+---@param y number The Y-coordinate of the point. Valid numbers: all decimal numbers.
+---@param z number The Z-coordinate of the point. Valid numbers: all decimal numbers.
+---@return number dist The distance in yards. Valid numbers: all decimal numbers.
+function WorldObject:GetExactDistance(obj, x, y, z) end
 
--- Method to return the exact distance from this WorldObject to another WorldObject or a point in 3D space
-function WorldObject:GetExactDistance(otherObject)
-    -- Implement logic to calculate and return the exact 3D distance
-end
+---@param obj WorldObject 
+---@param x number The X-coordinate of the point. Valid numbers: all decimal numbers.
+---@param y number The Y-coordinate of the point. Valid numbers: all decimal numbers.
+---@return number dist The distance in yards. Valid numbers: all decimal numbers.
+function WorldObject:GetExactDistance2d(obj, x, y) end
 
--- Method to return the exact distance from this WorldObject to another WorldObject or a point in 2D space
-function WorldObject:GetExactDistance2d(otherObject)
-    -- Implement logic to calculate and return the exact 2D distance
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param entryId? number Default value: (0) Optionally set entry ID of game objects to find. Valid numbers: integers from 0 to 4,294,967,295.
+---@param hostile? number Default value: (0) 0 both, 1 hostile, 2 friendly. Valid numbers: integers from 0 to 4,294,967,295.
+---@return table gameObjectsInRange Table of GameObjects.
+function WorldObject:GetGameObjectsInRange(range, entryId, hostile) end
 
--- Method to return a table of GameObject objects in sight of the WorldObject or within the given range and/or with a specific entry ID
-function WorldObject:GetGameObjectsInRange(range, entryId)
-    -- Implement logic to find and return the game objects within range and/or with the specified entry ID
-end
+---@return number instanceId Valid numbers: integers from 0 to 4,294,967,295.
+function WorldObject:GetInstanceId() end
 
--- Method to return the current instance ID of the WorldObject
-function WorldObject:GetInstanceId()
-    -- Implement logic to return the instance ID
-end
+---@return number x X coordinate of the WorldObject. Valid numbers: all decimal numbers.
+---@return number y Y coordinate of the WorldObject. Valid numbers: all decimal numbers.
+---@return number z Z coordinate (height) of the WorldObject. Valid numbers: all decimal numbers.
+---@return number o Facing / orientation of  the WorldObject. Valid numbers: all decimal numbers.
+function WorldObject:GetLocation() end
 
--- Method to return the coordinates and orientation of the WorldObject
-function WorldObject:GetLocation()
-    -- Implement logic to return the coordinates and orientation
-end
+---@return Map mapObject 
+function WorldObject:GetMap() end
 
--- Method to return the current Map object of the WorldObject
-function WorldObject:GetMap()
-    -- Implement logic to return the Map object
-end
+---@return number mapId Valid numbers: integers from 0 to 4,294,967,295.
+function WorldObject:GetMapId() end
 
--- Method to return the current map ID of the WorldObject
-function WorldObject:GetMapId()
-    -- Implement logic to return the map ID
-end
+---@return string name 
+function WorldObject:GetName() end
 
--- Method to return the name of the WorldObject
-function WorldObject:GetName()
-    -- Implement logic to return the name
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param type? TypeMask Default value: (0) The [TypeMask] that the WorldObject must be. This can contain multiple types. 0 will be ingored.
+---@param entry? number Default value: (0) The entry of the WorldObject, 0 will be ingored. Valid numbers: integers from 0 to 4,294,967,295.
+---@param hostile? number Default value: (0) Specifies whether the WorldObject needs to be 1 hostile, 2 friendly or 0 either. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dead? number Default value: (1) 0 both, 1 alive, 2 dead. Valid numbers: integers from 0 to 4,294,967,295.
+---@return WorldObject worldObject 
+function WorldObject:GetNearObject(range, type, entry, hostile, dead) end
 
--- Method to return the nearest WorldObject in sight of the WorldObject, considering distance, type, entry, and hostility requirements
-function WorldObject:GetNearObject(distance, objectType, entryId, isHostile)
-    -- Implement logic to find and return the nearest WorldObject based on the criteria
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param type? TypeMask Default value: (0) The [TypeMask] that the WorldObject must be. This can contain multiple types. 0 will be ingored.
+---@param entry? number Default value: (0) The entry of the WorldObject, 0 will be ingored. Valid numbers: integers from 0 to 4,294,967,295.
+---@param hostile? number Default value: (0) Specifies whether the WorldObject needs to be 1 hostile, 2 friendly or 0 either. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dead? number Default value: (1) 0 both, 1 alive, 2 dead. Valid numbers: integers from 0 to 4,294,967,295.
+---@return table worldObjectList Table of WorldObjects.
+function WorldObject:GetNearObjects(range, type, entry, hostile, dead) end
 
--- Method to return a table of WorldObjects in sight of the WorldObject, considering distance, type, entry, and hostility requirements
-function WorldObject:GetNearObjects(distance, objectType, entryId, isHostile)
-    -- Implement logic to find and return a table of WorldObjects based on the criteria
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param entryId? number Default value: (0) Optionally set entry ID of creature to find. Valid numbers: integers from 0 to 4,294,967,295.
+---@param hostile? number Default value: (0) 0 both, 1 hostile, 2 friendly. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dead? number Default value: (1) 0 both, 1 alive, 2 dead. Valid numbers: integers from 0 to 4,294,967,295.
+---@return Creature nearest 
+function WorldObject:GetNearestCreature(range, entryId, hostile, dead) end
 
--- Method to return the nearest Creature object in sight of the WorldObject or within the given range and/or with a specific entry ID
-function WorldObject:GetNearestCreature(range, entryId)
-    -- Implement logic to find and return the nearest creature within range and/or with the specified entry ID
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param entryId? number Default value: (0) Optionally set entry ID of game object to find. Valid numbers: integers from 0 to 4,294,967,295.
+---@param hostile? number Default value: (0) 0 both, 1 hostile, 2 friendly. Valid numbers: integers from 0 to 4,294,967,295.
+---@return GameObject nearest 
+function WorldObject:GetNearestGameObject(range, entryId, hostile) end
 
--- Method to return the nearest GameObject object in sight of the WorldObject or within the given range and/or with a specific entry ID
-function WorldObject:GetNearestGameObject(range, entryId)
-    -- Implement logic to find and return the nearest game object within range and/or with the specified entry ID
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param hostile? number Default value: (0) 0 both, 1 hostile, 2 friendly. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dead? number Default value: (1) 0 both, 1 alive, 2 dead. Valid numbers: integers from 0 to 4,294,967,295.
+---@return Player nearest 
+function WorldObject:GetNearestPlayer(range, hostile, dead) end
 
--- Method to return the nearest Player object in sight of the WorldObject or within the given range
-function WorldObject:GetNearestPlayer(range)
-    -- Implement logic to find and return the nearest Player within the given range
-end
+---@return number orientation Valid numbers: all decimal numbers.
+function WorldObject:GetO() end
 
--- Method to return the current orientation of the WorldObject
-function WorldObject:GetO()
-    -- Implement logic to return the orientation
-end
+---@return number phase Valid numbers: integers from 0 to 4,294,967,295.
+function WorldObject:GetPhaseMask() end
 
--- Method to return the current phase of the WorldObject
-function WorldObject:GetPhaseMask()
-    -- Implement logic to return the phase mask
-end
+---@param range? number Default value: (533) Valid numbers: all decimal numbers.
+---@param hostile? number Default value: (0) 0 both, 1 hostile, 2 friendly. Valid numbers: integers from 0 to 4,294,967,295.
+---@param dead? number Default value: (1) 0 both, 1 alive, 2 dead. Valid numbers: integers from 0 to 4,294,967,295.
+---@return table playersInRange Table of Players.
+function WorldObject:GetPlayersInRange(range, hostile, dead) end
 
--- Method to return a table of Player objects in sight of the WorldObject or within the given range
-function WorldObject:GetPlayersInRange(range)
-    -- Implement logic to find and return Player objects within the given range
-end
+---@param distance number Specifies the distance of the point from the WorldObject in yards. Valid numbers: all decimal numbers.
+---@param angle number Specifies the angle of the point relative to the orientation / facing of the WorldObject in radians. Valid numbers: all decimal numbers.
+---@return number x Valid numbers: all decimal numbers.
+---@return number y Valid numbers: all decimal numbers.
+---@return number z Valid numbers: all decimal numbers.
+function WorldObject:GetRelativePoint(distance, angle) end
 
--- Method to return the x, y, and z of a point at a specified distance away from the WorldObject
-function WorldObject:GetRelativePoint(distance)
-    -- Implement logic to calculate and return the relative point
-end
+---@return number x Valid numbers: all decimal numbers.
+function WorldObject:GetX() end
 
--- Method to return the current X coordinate of the WorldObject
-function WorldObject:GetX()
-    -- Implement logic to return the X coordinate
-end
+---@return number y Valid numbers: all decimal numbers.
+function WorldObject:GetY() end
 
--- Method to return the current Y coordinate of the WorldObject
-function WorldObject:GetY()
-    -- Implement logic to return the Y coordinate
-end
+---@return number z Valid numbers: all decimal numbers.
+function WorldObject:GetZ() end
 
--- Method to return the current Z coordinate of the WorldObject
-function WorldObject:GetZ()
-    -- Implement logic to return the Z coordinate
-end
+---@return number zoneId Valid numbers: integers from 0 to 4,294,967,295.
+function WorldObject:GetZoneId() end
 
--- Method to return the current zone ID of the WorldObject
-function WorldObject:GetZoneId()
-    -- Implement logic to return the zone ID
-end
+---@param target WorldObject 
+---@param arc? number Default value: (pi) Valid numbers: all decimal numbers.
+---@return boolean isInBack 
+function WorldObject:IsInBack(target, arc) end
 
--- Method to check if the target is in the given arc behind the WorldObject
-function WorldObject:IsInBack(target, arc)
-    -- Implement logic to check if the target is in the specified arc behind the WorldObject
-end
+---@param target WorldObject 
+---@param arc? number Default value: (pi) Valid numbers: all decimal numbers.
+---@return boolean isInFront 
+function WorldObject:IsInFront(target, arc) end
 
--- Method to check if the target is in the given arc in front of the WorldObject
-function WorldObject:IsInFront(target, arc)
-    -- Implement logic to check if the target is in the specified arc in front of the WorldObject
-end
+---@param worldobject WorldObject 
+---@return boolean isInMap 
+function WorldObject:IsInMap(worldobject) end
 
--- Method to check if the WorldObjects are on the same map
-function WorldObject:IsInMap(otherObject)
-    -- Implement logic to check if both objects are on the same map
-end
+---@param target WorldObject 
+---@param minrange number Valid numbers: all decimal numbers.
+---@param maxrange number Valid numbers: all decimal numbers.
+---@param is3D? boolean Default value: (true) If false, only x,y coordinates used for checking.
+---@return boolean isInDistance 
+function WorldObject:IsInRange(target, minrange, maxrange, is3D) end
 
--- Method to check if the target is within the given range
-function WorldObject:IsInRange(target, range)
-    -- Implement logic to check if the target is within the specified range
-end
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param minrange number Valid numbers: all decimal numbers.
+---@param maxrange number Valid numbers: all decimal numbers.
+---@return boolean isInDistance 
+function WorldObject:IsInRange2d(x, y, minrange, maxrange) end
 
--- Method to check if the point is within the given range (2D)
-function WorldObject:IsInRange2d(point, range)
-    -- Implement logic to check if the point is within the specified 2D range
-end
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@param minrange number Valid numbers: all decimal numbers.
+---@param maxrange number Valid numbers: all decimal numbers.
+---@return boolean isInDistance 
+function WorldObject:IsInRange3d(x, y, z, minrange, maxrange) end
 
--- Method to check if the point is within the given range (3D)
-function WorldObject:IsInRange3d(point, range)
-    -- Implement logic to check if the point is within the specified 3D range
-end
+---@param target WorldObject 
+---@param distance number Valid numbers: all decimal numbers.
+---@param is3D? boolean Default value: (true) If false, only x,y coordinates used for checking.
+---@return boolean isInDistance 
+function WorldObject:IsWithinDist(target, distance, is3D) end
 
--- Method to check if the target is in the given distance of the WorldObject
-function WorldObject:IsWithinDist(target, distance)
-    -- Implement logic to check if the target is within the specified distance of the WorldObject
-end
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param distance number Valid numbers: all decimal numbers.
+---@return boolean isInDistance 
+function WorldObject:IsWithinDist2d(x, y, distance) end
 
--- Method to check if the point is in the given distance of the WorldObject (2D)
-function WorldObject:IsWithinDist2d(point, distance)
-    -- Implement logic to check if the point is within the specified 2D distance of the WorldObject
-end
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@param distance number Valid numbers: all decimal numbers.
+---@return boolean isInDistance 
+function WorldObject:IsWithinDist3d(x, y, z, distance) end
 
--- Method to check if the point is in the given distance of the WorldObject (3D)
-function WorldObject:IsWithinDist3d(point, distance)
-    -- Implement logic to check if the point is within the specified 3D distance of the WorldObject
-end
+---@param target WorldObject 
+---@param distance number Valid numbers: all decimal numbers.
+---@param is3D? boolean Default value: (true) If false, only x,y coordinates used for checking.
+---@return boolean isInDistance 
+function WorldObject:IsWithinDistInMap(target, distance, is3D) end
 
--- Method to check if the WorldObject is on the same map and within the given distance
-function WorldObject:IsWithinDistInMap(otherObject, distance)
-    -- Implement logic to check if both objects are on the same map and within the specified distance
-end
+---@param worldobject WorldObject 
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@return boolean isInLoS 
+function WorldObject:IsWithinLoS(worldobject, x, y, z) end
 
--- Method to check if the given WorldObject or coordinates are in the WorldObject's line of sight
-function WorldObject:IsWithinLoS(target)
-    -- Implement logic to check if the target or coordinates are within the line of sight
-end
+---@param sound number Entry of a sound. Valid numbers: integers from 0 to 4,294,967,295.
+---@param player? Player Default value: (nil) Player to play the sound to.
+function WorldObject:PlayDirectSound(sound, player) end
 
--- Method for the WorldObject to play a direct sound to a Player
-function WorldObject:PlayDirectSound(player, soundId)
-    -- Implement logic to play a direct sound to the specified Player
-end
+---@param sound number Entry of a sound. Valid numbers: integers from 0 to 4,294,967,295.
+---@param player? Player Default value: (nil) Player to play the sound to.
+function WorldObject:PlayDistanceSound(sound, player) end
 
--- Method for the WorldObject to play a distance sound to a Player
-function WorldObject:PlayDistanceSound(player, soundId, range)
-    -- Implement logic to play a distance sound to the specified Player within the given range
-end
+---@param music number Entry of a music. Valid numbers: integers from 0 to 4,294,967,295.
+---@param player? Player Default value: (nil) Player to play the music to.
+function WorldObject:PlayMusic(music, player) end
 
--- Method for the WorldObject to play music to a Player
-function WorldObject:PlayMusic(player, musicId)
-    -- Implement logic to play music to the specified Player
-end
+---@param func function Function to trigger when the time has passed.
+---@param delay number Set time in milliseconds for the event to trigger. Valid numbers: integers from 0 to 4,294,967,295.
+---@param delay table A table {min, max} containing the minimum and maximum delay time.
+---@param repeats? number Default value: (1) How many times for the event to repeat, 0 is infinite. Valid numbers: integers from 0 to 4,294,967,295.
+---@return number eventId Unique ID for the timed event used to cancel it or nil. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function WorldObject:RegisterEvent(func, delay, delay, repeats) end
 
--- Registers a timed event to the WorldObject.
--- When the passed function is called, the parameters (eventId, delay, repeats, worldobject) are passed to it.
--- Repeats will decrease on each call if the event does not repeat indefinitely.
--- Note that for Creature and GameObject, the timed event timer ticks only if the creature is in sight of someone.
--- For all WorldObjects, the timed events are removed when the object is destroyed. This means that, for example, a Player's events are removed on logout.
--- @param eventFunction: The function to trigger when the time has passed.
--- @param delay: Set time in milliseconds for the event to trigger. Valid numbers: integers from 0 to 4,294,967,295.
--- @param repeats: How many times for the event to repeat, 0 is infinite. Valid numbers: integers from 0 to 4,294,967,295.
--- @param ...: Additional optional parameters.
--- @return eventId: Unique ID for the timed event used to cancel it or nil. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
-function WorldObject:RegisterEvent(eventFunction, delay, repeats, ...)
-    -- Implement logic to register a timed event with the specified parameters.
-end
+---@param eventId number Event Id to remove. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function WorldObject:RemoveEventById(eventId) end
 
--- Method to remove the timed event from a WorldObject by the specified event ID
-function WorldObject:RemoveEventById(eventId)
-    -- Implement logic to remove the timed event with the specified event ID
-end
+function WorldObject:RemoveEvents() end
 
--- Method to remove all timed events from a WorldObject
-function WorldObject:RemoveEvents()
-    -- Implement logic to remove all timed events from the WorldObject
-end
+---@param packet WorldPacket 
+function WorldObject:SendPacket(packet) end
 
--- Method to send a WorldPacket to Players in sight of the WorldObject
-function WorldObject:SendPacket(packet)
-    -- Implement logic to send the specified WorldPacket to Players in sight of the WorldObject
-end
+---@param phaseMask number Valid numbers: integers from 0 to 4,294,967,295.
+---@param update? boolean Default value: (true) Update visibility to nearby objects.
+function WorldObject:SetPhaseMask(phaseMask, update) end
 
--- Method to set the WorldObject's phase mask
-function WorldObject:SetPhaseMask(phaseMask)
-    -- Implement logic to set the phase mask of the WorldObject
-end
+---@param entry number Creature's entry ID. Valid numbers: integers from 0 to 4,294,967,295.
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@param o number Valid numbers: all decimal numbers.
+---@param spawnType? TempSummonType Default value: (MANUAL_DESPAWN) Defines how and when the creature despawns.
+---@param despawnTimer? number Default value: (0) Despawn time in milliseconds. Valid numbers: integers from 0 to 4,294,967,295.
+---@return Creature spawned 
+function WorldObject:SpawnCreature(entry, x, y, z, o, spawnType, despawnTimer) end
 
--- Method to spawn a creature at the specified location
-function WorldObject:SpawnCreature( entry, x, y, z, o, spawnType, despawnTimer )
-    -- Implement logic to spawn a creature with the specified entry at the given coordinates and orientation
-end
+---@param entry number GameObject entry ID. Valid numbers: integers from 0 to 4,294,967,295.
+---@param x number Valid numbers: all decimal numbers.
+---@param y number Valid numbers: all decimal numbers.
+---@param z number Valid numbers: all decimal numbers.
+---@param o number Valid numbers: all decimal numbers.
+---@param respawnDelay? number Default value: (30) Respawn time in seconds. Valid numbers: integers from 0 to 4,294,967,295.
+---@return GameObject gameObject 
+function WorldObject:SummonGameObject(entry, x, y, z, o, respawnDelay) end
 
--- Method to summon a GameObject at the specified location
-function WorldObject:SummonGameObject(gameObjectEntry, x, y, z, o)
-    -- Implement logic to summon a GameObject with the specified entry at the given coordinates and orientation
-end

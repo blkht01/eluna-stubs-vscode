@@ -1,65 +1,42 @@
--- The Quest class represents an in-game quest.
--- It provides methods for inspecting quest details.
--- @class Quest
+---@meta
+
+---@class Quest
 Quest = {}
 
--- Constructor for a new Quest instance
-function Quest:new()
-    local instance = setmetatable({}, { __index = Quest })
-    return instance
-end
+---@return QuestFlags flags 
+function Quest:GetFlags() end
 
--- Method to get the Quest's flags
-function Quest:GetFlags()
-    -- Implement logic to get quest flags
-end
+---@return number entryId Valid numbers: integers from 0 to 4,294,967,295.
+function Quest:GetId() end
 
--- Method to get the entry ID of the Quest
-function Quest:GetId()
-    -- Implement logic to get quest entry ID
-end
+---@return number level Valid numbers: integers from 0 to 4,294,967,295.
+function Quest:GetLevel() end
 
--- Method to get the Quest's level
-function Quest:GetLevel()
-    -- Implement logic to get quest level
-end
+---@return number maxLevel Valid numbers: integers from 0 to 4,294,967,295.
+function Quest:GetMaxLevel() end
 
--- Method to get the minimum level required to pick up the Quest
-function Quest:GetMinLevel()
-    -- Implement logic to get minimum level for quest pickup
-end
+---@return number minLevel Valid numbers: integers from 0 to 4,294,967,295.
+function Quest:GetMinLevel() end
 
--- Method to get the next Quest entry ID
-function Quest:GetNextQuestId()
-    -- Implement logic to get next quest entry ID
-end
+---@return number entryId Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Quest:GetNextQuestId() end
 
--- Method to get the next Quest entry ID in the specific Quest chain
-function Quest:GetNextQuestInChain()
-    -- Implement logic to get next quest entry ID in chain
-end
+---@return number entryId Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Quest:GetNextQuestInChain() end
 
--- Method to get the previous Quest entry ID
-function Quest:GetPrevQuestId()
-    -- Implement logic to get previous quest entry ID
-end
+---@return number entryId Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function Quest:GetPrevQuestId() end
 
--- Method to get the Quest's type
-function Quest:GetType()
-    -- Implement logic to get quest type
-end
+---@return number type Valid numbers: integers from 0 to 4,294,967,295.
+function Quest:GetType() end
 
--- Method to check if the Quest has the specified flag
-function Quest:HasFlag(flag)
-    -- Implement logic to check quest flag
-end
+---@param flag QuestFlags All available flags can be seen above.
+---@return boolean hasFlag 
+function Quest:HasFlag(flag) end
 
--- Method to check if the Quest is a daily quest
-function Quest:IsDaily()
-    -- Implement logic to check if quest is daily
-end
+---@return boolean isDaily 
+function Quest:IsDaily() end
 
--- Method to check if the Quest is repeatable
-function Quest:IsRepeatable()
-    -- Implement logic to check if quest is repeatable
-end
+---@return boolean isRepeatable 
+function Quest:IsRepeatable() end
+

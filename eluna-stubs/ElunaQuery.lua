@@ -1,143 +1,69 @@
----
--- The result of a database query.
--- E.g. the return value of Global:WorldDBQuery.
+---@meta
+
+---@class ElunaQuery
 ElunaQuery = {}
-ElunaQuery.__index = ElunaQuery
 
--- Constructor for a new ElunaQuery instance
-function ElunaQuery:new(name)
-    local instance = setmetatable({}, ElunaQuery)
-    instance.name = name -- Example property
-    return instance
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean data 
+function ElunaQuery:GetBool(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a boolean.
--- @param column string - The name of the column.
--- @return boolean - The boolean value.
-function ElunaQuery:GetBool(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return number columnCount Valid numbers: integers from 0 to 4,294,967,295.
+function ElunaQuery:GetColumnCount() end
 
----
--- Returns the number of columns in the result set.
--- @return number - The number of columns.
-function ElunaQuery:GetColumnCount()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: all decimal numbers.
+function ElunaQuery:GetDouble(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a 64-bit floating point value.
--- @param column string - The name of the column.
--- @return number - The 64-bit floating point value.
-function ElunaQuery:GetDouble(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: all decimal numbers.
+function ElunaQuery:GetFloat(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a 32-bit floating point value.
--- @param column string - The name of the column.
--- @return number - The 32-bit floating point value.
-function ElunaQuery:GetFloat(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from -32,767 to 32,767.
+function ElunaQuery:GetInt16(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a signed 16-bit integer.
--- @param column string - The name of the column.
--- @return number - The signed 16-bit integer.
-function ElunaQuery:GetInt16(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
+function ElunaQuery:GetInt32(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a signed 32-bit integer.
--- @param column string - The name of the column.
--- @return number - The signed 32-bit integer.
-function ElunaQuery:GetInt32(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+function ElunaQuery:GetInt64(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a signed 64-bit integer.
--- @param column string - The name of the column.
--- @return number - The signed 64-bit integer.
-function ElunaQuery:GetInt64(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from -127 to 127.
+function ElunaQuery:GetInt8(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a signed 8-bit integer.
--- @param column string - The name of the column.
--- @return number - The signed 8-bit integer.
-function ElunaQuery:GetInt8(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return table rowData Table filled with row columns and data where T[column] = data.
+function ElunaQuery:GetRow() end
 
----
--- Returns a table from the current row where keys are field names and values are the row's values.
--- @return table - The table representing the current row.
-function ElunaQuery:GetRow()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return number rowCount Valid numbers: integers from 0 to 4,294,967,295.
+function ElunaQuery:GetRowCount() end
 
----
--- Returns the number of rows in the result set.
--- @return number - The number of rows.
-function ElunaQuery:GetRowCount()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return string data 
+function ElunaQuery:GetString(column) end
 
----
--- Returns the data in the specified column of the current row, casted to a string.
--- @param column string - The name of the column.
--- @return string - The string value.
-function ElunaQuery:GetString(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from 0 to 65,535.
+function ElunaQuery:GetUInt16(column) end
 
----
--- Returns the data in the specified column of the current row, casted to an unsigned 16-bit integer.
--- @param column string - The name of the column.
--- @return number - The unsigned 16-bit integer.
-function ElunaQuery:GetUInt16(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from 0 to 4,294,967,295.
+function ElunaQuery:GetUInt32(column) end
 
----
--- Returns the data in the specified column of the current row, casted to an unsigned 32-bit integer.
--- @param column string - The name of the column.
--- @return number - The unsigned 32-bit integer.
-function ElunaQuery:GetUInt32(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
+function ElunaQuery:GetUInt64(column) end
 
----
--- Returns the data in the specified column of the current row, casted to an unsigned 64-bit integer.
--- @param column string - The name of the column.
--- @return number - The unsigned 64-bit integer.
-function ElunaQuery:GetUInt64(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return number data Valid numbers: integers from 0 to 255.
+function ElunaQuery:GetUInt8(column) end
 
----
--- Returns the data in the specified column of the current row, casted to an unsigned 8-bit integer.
--- @param column string - The name of the column.
--- @return number - The unsigned 8-bit integer.
-function ElunaQuery:GetUInt8(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@param column number Valid numbers: integers from 0 to 4,294,967,295.
+---@return boolean isNull 
+function ElunaQuery:IsNull(column) end
 
----
--- Returns true if the specified column of the current row is NULL, otherwise false.
--- @param column string - The name of the column.
--- @return boolean - True if the column is NULL, false otherwise.
-function ElunaQuery:IsNull(column)
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
+---@return boolean hadNextRow 
+function ElunaQuery:NextRow() end
 
----
--- Advances the ElunaQuery to the next row in the result set.
-function ElunaQuery:NextRow()
-    -- This is a stub. Actual functionality should be provided by the game engine.
-end
