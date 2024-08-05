@@ -3,7 +3,7 @@
 ---@class BattleGround
 BattleGround = {}
 
----@param team Team Team ID.
+---@param team integer Team ID.
 ---@return number count Valid numbers: integers from 0 to 4,294,967,295.
 function BattleGround:GetAlivePlayersCountByTeam(team) end
 
