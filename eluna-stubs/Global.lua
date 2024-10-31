@@ -26,11 +26,15 @@ function AuthDBQuery(sql) end
 ---@param func function The callback function to be called with the query results.
 function AuthDBQueryAsync(sql, func) end
 
----@param banMode BanMode Method of ban, refer to BanMode above.
----@param nameOrIP string If BanMode is 0 then accountname, if 1 then charactername if 2 then ip.
+---@param banMode number Method of ban, determines what will be banned.
+---                    Valid values:
+---                    0: BAN_ACCOUNT - Bans the entire account associated with the provided name.
+---                    1: BAN_CHARACTER - Bans the specific character associated with the provided name.
+---                    2: BAN_IP - Bans the IP address associated with the provided IP.
+---@param nameOrIP string If banMode is 0, then account name; if 1, then character name; if 2, then IP address.
 ---@param duration number Duration (in seconds) of the ban. Valid numbers: integers from 0 to 4,294,967,295.
----@param reason string 
----@param whoBanned string 
+---@param reason string Reason for the ban.
+---@param whoBanned string The name of the person or system responsible for issuing the ban.
 ---@return number result Status of the ban. 0 if success, 1 if syntax error, 2 if target not found, 3 if a longer ban already exists, nil if unknown result. Valid numbers: integers from -2,147,483,647 to 2,147,483,647.
 function Ban(banMode, nameOrIP, duration, reason, whoBanned) end
 
@@ -209,12 +213,12 @@ function GetPlayerCount() end
 ---@return number guid Valid numbers: integers from 0 to 18,446,744,073,709,551,615.
 function GetPlayerGUID(lowguid) end
 
----@param team? TeamId Default value: (TEAM_NEUTRAL) Optional check team of the Player, Alliance, Horde or Neutral (All).
----@param onlyGM? boolean Default value: (false) Optional check if GM only.
+---@param team? number Default value: 2 (TEAM_NEUTRAL). Optional check team of the Player, 0 = Alliance, 1 = Horde or 2 = Neutral (All).
+---@param onlyGM? boolean Default value: (false) Optional check if GM only (true).
 ---@return table worldPlayers 
 function GetPlayersInWorld(team, onlyGM) end
 
----@param team? TeamId Default value: (TEAM_NEUTRAL) Optional check team of the Player, Alliance, Horde or Neutral (All).
+---@param team? number Default value: (TEAM_NEUTRAL) Optional check team of the Player, Alliance, Horde or Neutral (All).
 ---@param onlyGM? boolean Default value: (false) Optional check if GM only.
 ---@return table mapPlayers 
 function GetPlayersOnMap(team, onlyGM) end
